@@ -833,3 +833,4 @@ function bumpVersion(v) {
 }
 
 function truncate(s, n = 60) { return s && s.length > n ? s.slice(0, n) + "…" : s; }
+function fmtTs(s) { try { return new Date(s).toLocaleString("en-US", { month:"short", day:"numeric", hour:"2-digit", minute:"2-digit" }); } catch { return s; } }
