@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daily Checklist</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f5f7; padding: 20px; }
+  .container { max-width: 680px; margin: 0 auto; }
+  h1 { font-size: 22px; font-weight: 700; color: #1a1a2e; margin-bottom: 16px; }
+
+  .section { background: white; border-radius: 12px; margin-bottom: 14px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.07); }
+  .section-header { padding: 10px 16px; font-size: 11px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; display: flex; align-items: center; gap: 8px; }
+  .section-header .progress { margin-left: auto; font-size: 11px; font-weight: 600; opacity: 0.7; }
+
+  .quick-wins .section-header { background: #e8f5e9; color: #2e7d32; }
+  .high-priority .section-header { background: #fff3e0; color: #e65100; }
+  .mid-priority .section-header { background: #e3f2fd; color: #1565c0; }
+  .low-priority .section-header { background: #f3e5f5; color: #6a1b9a; }
+
+  .group { border-top: 1px solid #f0f0f0; }
+  .group:first-child { border-top: none; }
+  .group-label { padding: 8px 16px 4px; font-size: 12px; font-weight: 600; color: #555; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+  .badge { font-size: 10px; padding: 1px 7px; border-radius: 20px; font-weight: 700; }
+  .badge-done { background: #e8f5e9; color: #2e7d32; }
+  .badge-review { background: #e3f2fd; color: #1565c0; }
+  .badge-due { background: #fce4ec; color: #c62828; }
+
+  .item { display: flex; align-items: flex-start; gap: 10px; padding: 6px 16px 6px 32px; cursor: pointer; transition: background 0.1s; }
+  .item:hover { background: #fafafa; }
+  .item input[type=checkbox] { margin-top: 2px; width: 15px; height: 15px; cursor: pointer; accent-color: #4caf50; flex-shrink: 0; }
+  .item label { font-size: 13.5px; color: #333; cursor: pointer; line-height: 1.4; }
+  .item.checked label { text-decoration: line-through; color: #aaa; }
+  .sub-item { padding-left: 52px; }
+  .sub-item label { font-size: 12.5px; }
+
+  .progress-bar-wrap { height: 4px; background: #eee; }
+  .progress-bar { height: 4px; transition: width 0.3s; }
+  .quick-wins .progress-bar { background: #4caf50; }
+  .high-priority .progress-bar { background: #ff9800; }
+  .mid-priority .progress-bar { background: #2196f3; }
+  .low-priority .progress-bar { background: #9c27b0; }
+
+  .jira-links { padding: 4px 16px 8px 32px; display: flex; flex-direction: column; gap: 3px; }
+  .jira-links a { font-size: 11.5px; color: #0052cc; text-decoration: none; display: flex; align-items: center; gap: 5px; }
+  .jira-links a:hover { text-decoration: underline; }
+  .jira-links a::before { content: '🔗'; font-size: 10px; }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>📋 Jerel's Priority List for May 15th, 2026</h1>
+
+  <div class="section quick-wins">
+    <div class="section-header">⚡ Quick Wins — Before 8:30 AM <span class="progress" id="prog-qw"></span></div>
+    <div class="progress-bar-wrap"><div class="progress-bar" id="bar-qw"></div></div>
+    <div class="group">
+      <div class="group-label">Sunset Deal Zone <span class="badge badge-done">DONE</span></div>
+      <div class="jira-links">
+        <a href="https://jira.bnh.com/browse/BHP-6757" target="_blank">BHP-6757 — DealZone/Specials Navigation Updates</a>
+        <a href="https://jira.bnh.com/browse/BHP-6221" target="_blank">BHP-6221 — Sunset DealZone - One Page - Specials</a>
+        <a href="https://jira.bnh.com/browse/BHP-6756" target="_blank">BHP-6756 — Judah - Sunset Deal Zone</a>
+      </div>
+      <div class="item checked" data-sec="qw"><input type="checkbox" checked id="c1"><label for="c1">Create new ticket for Specials anchor</label></div>
+      <div class="item checked" data-sec="qw"><input type="checkbox" checked id="c2"><label for="c2">Set all tickets to June</label></div>
+      <div class="item checked" data-sec="qw"><input type="checkbox" checked id="c3"><label for="c3">Update Teams chat with progress</label></div>
+    </div>
+    <div class="group">
+      <div class="group-label">View All Cat Landing Page <span class="badge badge-done">DONE</span></div>
+      <div class="jira-links">
+        <a href="https://jira.bnh.com/browse/BHP-5408" target="_blank">BHP-5408 — Alternative Placement for "All" Categories</a>
+      </div>
+      <div class="item checked" data-sec="qw"><input type="checkbox" checked id="c4"><label for="c4">Check status of BHP, blockers? Set for June</label></div>
+      <div class="item checked" data-sec="qw"><input type="checkbox" checked id="c5"><label for="c5">Update Merchandising</label></div>
+    </div>
+    <div class="group">
+      <div class="group-label">EDU Homepage <span class="badge badge-done">DONE</span></div>
+      <div class="jira-links">
+        <a href="https://jira.bnh.com/browse/BHP-3583" target="_blank">BHP-3583 — EDU Homepage Updates</a>
+      </div>
+      <div class="item checked" data-sec="qw"><input type="checkbox" checked id="c6"><label for="c6">Direct Hilli to the rest of the comments</label></div>
+      <div class="item checked" data-sec="qw"><input type="checkbox" checked id="c7"><label for="c7">Set ticket to June</label></div>
+      <div class="item checked" data-sec="qw"><input type="checkbox" checked id="c8"><label for="c8">Request UX leadership approval</label></div>
+    </div>
+  </div>
+
+  <div class="section high-priority">
+    <div class="section-header">🔥 High Priority <span class="progress" id="prog-hp"></span></div>
+    <div class="progress-bar-wrap"><div class="progress-bar" id="bar-hp"></div></div>
+    <div class="group">
+      <div class="group-label">Sell Used <span class="badge badge-due">by 9:30</span> <span class="badge badge-done">DONE</span></div>
+      <div class="jira-links">
+        <a href="https://jira.bnh.com/browse/BHP-6434" target="_blank">BHP-6434 — Sell Used/Trade In</a>
+      </div>
+      <div class="item checked" data-sec="hp"><input type="checkbox" checked id="c9"><label for="c9">Roadmap User Stories</label></div>
+    </div>
+    <div class="group">
+      <div class="group-label">Used Group by Condition</div>
+      <div class="jira-links">
+        <a href="https://jira.bnh.com/browse/BHP-4518" target="_blank">BHP-4518 — Used Products Grouping by Condition Rating Product Detail Pages</a>
+      </div>
+      <div class="item checked" data-sec="hp"><input type="checkbox" checked id="c20"><label for="c20">Review Used Products Grouping by Condition Rating</label></div>
+    </div>
+    <div class="group">
+      <div class="group-label">PMO-5000</div>
+      <div class="jira-links">
+        <a href="https://jira.bnh.com/browse/BHP-6551" target="_blank">BHP-6551 — New B2B Hub Homepage + Sign Up</a>
+      </div>
+      <div class="item checked" data-sec="hp"><input type="checkbox" checked id="c10"><label for="c10">Send Bi-Weekly Email</label></div>
+      <div class="item checked" data-sec="hp"><input type="checkbox" checked id="c11"><label for="c11">Make final updates to CMS and homepage</label></div>
+      <div class="item sub-item checked" data-sec="hp"><input type="checkbox" checked id="c11a"><label for="c11a">Remove video</label></div>
+      <div class="item sub-item checked" data-sec="hp"><input type="checkbox" checked id="c11b"><label for="c11b">Make Studio more similar to Hayes mix up</label></div>
+      <div class="item checked" data-sec="hp"><input type="checkbox" checked id="c12"><label for="c12">Extract Gherkin from Figma and add to Confluence</label></div>
+      <div class="item checked" data-sec="hp"><input type="checkbox" checked id="c13"><label for="c13">Review and refine Gherkin for CMS and customer facing</label></div>
+    </div>
+    <div class="group">
+      <div class="group-label">Used 3yr Plan <span class="badge badge-review">REVIEW SPRINT</span></div>
+      <div class="item checked" data-sec="hp"><input type="checkbox" checked id="c14"><label for="c14">Send template to Isaac</label></div>
+    </div>
+    <div class="group">
+      <div class="group-label">June Sprint</div>
+      <div class="item checked" data-sec="hp"><input type="checkbox" checked id="c19"><label for="c19">Review and rank June sprint entries</label></div>
+    </div>
+  </div>
+
+  <div class="section mid-priority">
+    <div class="section-header">📅 Mid Priority — June <span class="progress" id="prog-mp"></span></div>
+    <div class="progress-bar-wrap"><div class="progress-bar" id="bar-mp"></div></div>
+    <div class="group">
+      <div class="group-label">Mega Menu</div>
+      <div class="jira-links">
+        <a href="https://jira.bnh.com/browse/BHP-6480" target="_blank">BHP-6480 — Mega Menu Restructure</a>
+      </div>
+      <div class="item" data-sec="mp"><input type="checkbox" id="c15"><label for="c15">Add Excel download capabilities</label></div>
+      <div class="item" data-sec="mp"><input type="checkbox" id="c16"><label for="c16">Enter MRCH ticket with manual</label></div>
+    </div>
+  </div>
+
+  <div class="section low-priority">
+    <div class="section-header">🔵 Low Priority <span class="progress" id="prog-lp"></span></div>
+    <div class="progress-bar-wrap"><div class="progress-bar" id="bar-lp"></div></div>
+    <div class="group">
+      <div class="group-label">Highlight Refinements <span class="badge badge-due">Thursday</span></div>
+      <div class="jira-links">
+        <a href="https://jira.bnh.com/browse/BHP-5132" target="_blank">BHP-5132 — Highlight Refinements</a>
+      </div>
+      <div class="item checked" data-sec="lp"><input type="checkbox" checked id="c17"><label for="c17">Discuss with Tech Content</label></div>
+    </div>
+    <div class="group">
+      <div class="group-label">Nested Refinements <span class="badge badge-due">June</span></div>
+      <div class="jira-links">
+        <a href="https://jira.bnh.com/browse/BHP-2802" target="_blank">BHP-2802 — Nested Refinements</a>
+      </div>
+      <div class="item" data-sec="lp"><input type="checkbox" id="c18"><label for="c18">Discuss with Tech Content</label></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const secs = { qw: [], hp: [], mp: [], lp: [] };
+  document.querySelectorAll('.item[data-sec]').forEach(el => {
+    secs[el.dataset.sec].push(el);
+  });
+
+  function update() {
+    for (const [k, items] of Object.entries(secs)) {
+      const total = items.length;
+      const done = items.filter(i => i.querySelector('input').checked).length;
+      document.getElementById('prog-' + k).textContent = done + '/' + total;
+      document.getElementById('bar-' + k).style.width = (total ? (done/total*100) : 0) + '%';
+    }
+  }
+
+  document.querySelectorAll('.item input[type=checkbox]').forEach(cb => {
+    cb.addEventListener('change', function() {
+      this.closest('.item').classList.toggle('checked', this.checked);
+      update();
+    });
+  });
+
+  update();
+</script>
+</body>
+</html>
