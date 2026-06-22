@@ -211,6 +211,7 @@
       margin-bottom: 40px;
       opacity: 0;
       animation: fadeUp .5s ease forwards .5s;
+      flex-wrap: wrap;
     }
     .section-header h2 {
       font-size: 11px;
@@ -382,6 +383,123 @@
     @media (max-width: 600px) {
       .cards { grid-template-columns: 1fr; }
     }
+
+    /* ── Roadmap Toggle Button ───────────────────────── */
+    .roadmap-toggle-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: none;
+      border: 1.5px solid var(--navy-light);
+      border-radius: 100px;
+      padding: 6px 16px;
+      font-family: var(--font);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--navy);
+      cursor: pointer;
+      transition: border-color .2s, color .2s, background .2s;
+      flex-shrink: 0;
+    }
+    .roadmap-toggle-btn:hover {
+      border-color: var(--gold-border);
+      color: var(--gold);
+      background: var(--gold-dim);
+    }
+    .roadmap-toggle-btn .chevron {
+      display: inline-block;
+      transition: transform .3s ease;
+      font-size: 10px;
+    }
+    .roadmap-toggle-btn.open .chevron { transform: rotate(180deg); }
+
+    /* ── Roadmap Table ───────────────────────────────── */
+    .roadmap-table-wrap {
+      display: none;
+      overflow-x: auto;
+      margin-bottom: 40px;
+    }
+    .roadmap-table-wrap.visible { display: block; }
+    .roadmap-table-wrap .section-header {
+      opacity: 1;
+      animation: none;
+    }
+    .roadmap-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+    }
+    .roadmap-table th {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--gray-500);
+      text-align: left;
+      padding: 10px 14px;
+      border-bottom: 1.5px solid var(--gray-100);
+      white-space: nowrap;
+      cursor: pointer;
+      user-select: none;
+      transition: color .2s;
+    }
+    .roadmap-table th:hover { color: var(--navy); }
+    .roadmap-table th.sort-asc,
+    .roadmap-table th.sort-desc { color: var(--gold); }
+    .roadmap-table th .sort-icon {
+      margin-left: 4px;
+      opacity: .35;
+      font-size: 9px;
+      transition: opacity .2s;
+    }
+    .roadmap-table th:hover .sort-icon { opacity: .7; }
+    .roadmap-table th.sort-asc .sort-icon,
+    .roadmap-table th.sort-desc .sort-icon { opacity: 1; }
+    .roadmap-table td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--gray-100);
+      color: var(--text-navy);
+      vertical-align: middle;
+    }
+    .roadmap-table tr:last-child td { border-bottom: none; }
+    .roadmap-table tr:hover td { background: var(--off-white); }
+
+    /* Status badges */
+    .badge {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      border-radius: 100px;
+      padding: 3px 10px;
+    }
+    .badge-discovery  { background: #EEF0F6; color: #7B82A0; }
+    .badge-design     { background: #EDF5FF; color: #1A5CA8; }
+    .badge-predev     { background: #FFF4E0; color: #B87A00; }
+    .badge-dev        { background: #E6F4EA; color: #1A7A38; }
+    .badge-impl       { background: #F0E6FF; color: #6B00B8; }
+    .badge-parking    { background: #F5F5F5; color: #999; }
+
+    /* Portfolio chips */
+    .chip {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .06em;
+      border-radius: 4px;
+      padding: 2px 8px;
+    }
+    .chip-b2b    { background: rgba(200,153,58,.14); color: var(--gold); }
+    .chip-used   { background: #FFF0EA; color: #C45000; }
+    .chip-web    { background: #FFEAEA; color: #B80000; }
+    .chip-merch  { background: #FFF0FC; color: #8B008B; }
+
+    @media (max-width: 900px) {
+      .roadmap-section { padding-left: 24px; padding-right: 24px; }
+    }
   </style>
 </head>
 <body>
@@ -419,6 +537,157 @@
     <div class="section-header">
       <h2>Live Demos</h2>
       <div class="section-rule"></div>
+      <button class="roadmap-toggle-btn" id="roadmapBtn" onclick="toggleRoadmap()">
+        View Roadmap <span class="chevron">▼</span>
+      </button>
+    </div>
+
+    <div class="roadmap-table-wrap" id="roadmapSection">
+      <div class="section-header" style="margin-top:32px;">
+        <h2>Product Roadmap</h2>
+        <div class="section-rule"></div>
+      </div>
+      <table class="roadmap-table">
+        <thead>
+          <tr>
+            <th onclick="sortTable(0)">Title <span class="sort-icon">⇅</span></th>
+            <th onclick="sortTable(1)">Status <span class="sort-icon">⇅</span></th>
+            <th onclick="sortTable(2)">Portfolio <span class="sort-icon">⇅</span></th>
+            <th onclick="sortTable(3)">Component <span class="sort-icon">⇅</span></th>
+            <th onclick="sortTable(4)">Tech <span class="sort-icon">⇅</span></th>
+            <th onclick="sortTable(5)">Start <span class="sort-icon">⇅</span></th>
+            <th onclick="sortTable(6)">End <span class="sort-icon">⇅</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Post Hub</td>
+            <td><span class="badge badge-discovery">0. Discovery</span></td>
+            <td><span class="chip chip-b2b">B2B</span></td>
+            <td>B2B Hub</td>
+            <td>BHJ</td>
+            <td>Oct</td>
+            <td>Jan</td>
+          </tr>
+          <tr>
+            <td>Sell Used</td>
+            <td><span class="badge badge-design">2. Design</span></td>
+            <td><span class="chip chip-used">Used Operations</span></td>
+            <td>Cart</td>
+            <td>UNIX, BHJ, SEARCH</td>
+            <td>Aug</td>
+            <td>Jan</td>
+          </tr>
+          <tr>
+            <td>New Condition Rating Scale</td>
+            <td><span class="badge badge-design">2. Design</span></td>
+            <td><span class="chip chip-used">Used Operations</span></td>
+            <td>PLP/PDP</td>
+            <td>UNIX, BHJ</td>
+            <td>Aug</td>
+            <td>Aug</td>
+          </tr>
+          <tr>
+            <td>School Safety Landing Page</td>
+            <td><span class="badge badge-design">2. Design</span></td>
+            <td><span class="chip chip-b2b">B2B</span></td>
+            <td>B2B Hub Plus</td>
+            <td>BHJ</td>
+            <td>Sep</td>
+            <td>Sep</td>
+          </tr>
+          <tr>
+            <td>Nested Refinements</td>
+            <td><span class="badge badge-predev">3. Pre-Dev</span></td>
+            <td><span class="chip chip-web">Web Experience</span></td>
+            <td>PLP/Search</td>
+            <td>BHJ, BHIA, SEARCH</td>
+            <td>Aug</td>
+            <td>Aug</td>
+          </tr>
+          <tr>
+            <td>Mega Menu</td>
+            <td><span class="badge badge-predev">3. Pre-Dev</span></td>
+            <td><span class="chip chip-merch">Merchandising</span></td>
+            <td>Navigation</td>
+            <td>BHJ, BHIA, BIDW</td>
+            <td>Aug</td>
+            <td>Oct</td>
+          </tr>
+          <tr>
+            <td>Sunset Deal Zone</td>
+            <td><span class="badge badge-dev">4. Dev</span></td>
+            <td><span class="chip chip-web">Web Experience</span></td>
+            <td>Navigation</td>
+            <td>BHJ</td>
+            <td>Jun</td>
+            <td>Aug</td>
+          </tr>
+          <tr>
+            <td>Group by Condition</td>
+            <td><span class="badge badge-dev">4. Dev</span></td>
+            <td><span class="chip chip-used">Used Operations</span></td>
+            <td>PLP/PDP</td>
+            <td>BHJ</td>
+            <td>Jun</td>
+            <td>Jul</td>
+          </tr>
+          <tr>
+            <td>View All Category Landing Page</td>
+            <td><span class="badge badge-dev">4. Dev</span></td>
+            <td><span class="chip chip-web">Web Experience</span></td>
+            <td>Category Landing Page</td>
+            <td>BHJ, BHIA</td>
+            <td>—</td>
+            <td>Jul</td>
+          </tr>
+          <tr>
+            <td>My Gear Release 2</td>
+            <td><span class="badge badge-dev">4. Dev</span></td>
+            <td><span class="chip chip-web">Web Experience</span></td>
+            <td>My Gear</td>
+            <td>BHJ, BHIA, SEARCH</td>
+            <td>Aug</td>
+            <td>Aug</td>
+          </tr>
+          <tr>
+            <td>Highlighted Refinements</td>
+            <td><span class="badge badge-dev">4. Dev</span></td>
+            <td><span class="chip chip-merch">Merchandising</span></td>
+            <td>PLP/Search</td>
+            <td>BHJ, Search, BHIA</td>
+            <td>May</td>
+            <td>Jul</td>
+          </tr>
+          <tr>
+            <td>Roll Up SKUs</td>
+            <td><span class="badge badge-parking">99. Parking Lot</span></td>
+            <td><span class="chip chip-web">Web Experience</span></td>
+            <td>PLP/Search</td>
+            <td>BHJ, BHIA, SEARCH</td>
+            <td>—</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>B2B Hub</td>
+            <td><span class="badge badge-dev">4. Dev</span></td>
+            <td><span class="chip chip-b2b">B2B</span></td>
+            <td>B2B Hub</td>
+            <td>BHJ</td>
+            <td>—</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>Actual Used Images</td>
+            <td><span class="badge badge-impl">5. Implementation</span></td>
+            <td><span class="chip chip-used">Used Operations</span></td>
+            <td>PDP / Images</td>
+            <td>BHJ, BHIA</td>
+            <td>Mar</td>
+            <td>Jun</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
     <div class="cards">
@@ -448,7 +717,7 @@
       <a class="card" href="https://jerelproductmanager.github.io/used/">
         <span class="card-num">03</span>
         <div class="card-category"><span class="pulse"></span>Used · Consumer</div>
-        <h3 class="card-title">Sell Used</h3>
+        <h3 class="card-title">Used</h3>
         <p class="card-desc"></p>
         <div class="card-footer">
           <span class="card-cta">View Demo <span class="arrow">→</span></span>
@@ -469,6 +738,71 @@
 
     </div>
   </section>
+
+  <script>
+    function toggleRoadmap() {
+      const btn = document.getElementById('roadmapBtn');
+      const wrap = document.getElementById('roadmapSection');
+      const isOpen = wrap.classList.contains('visible');
+      wrap.classList.toggle('visible', !isOpen);
+      btn.classList.toggle('open', !isOpen);
+      btn.querySelector('.chevron').textContent = isOpen ? '▼' : '▲';
+      const label = isOpen ? 'View Roadmap ' : 'Hide Roadmap ';
+      btn.childNodes[0].textContent = label;
+    }
+
+    let sortCol = -1, sortAsc = true;
+
+    function sortTable(col) {
+      const table = document.querySelector('.roadmap-table');
+      const tbody = table.querySelector('tbody');
+      const ths = table.querySelectorAll('th');
+      const rows = Array.from(tbody.querySelectorAll('tr'));
+
+      // Toggle direction if same column
+      if (sortCol === col) { sortAsc = !sortAsc; }
+      else { sortCol = col; sortAsc = true; }
+
+      // Update header classes + icons
+      ths.forEach((th, i) => {
+        th.classList.remove('sort-asc', 'sort-desc');
+        th.querySelector('.sort-icon').textContent = '⇅';
+        if (i === col) {
+          th.classList.add(sortAsc ? 'sort-asc' : 'sort-desc');
+          th.querySelector('.sort-icon').textContent = sortAsc ? '↑' : '↓';
+        }
+      });
+
+      // Month order for sprint columns
+      const months = ['jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec'];
+      const isSprintCol = col >= 5;
+
+      rows.sort((a, b) => {
+        let aVal = a.cells[col].textContent.trim().toLowerCase().replace('—','');
+        let bVal = b.cells[col].textContent.trim().toLowerCase().replace('—','');
+
+        if (isSprintCol) {
+          const ai = months.indexOf(aVal.substring(0,3));
+          const bi = months.indexOf(bVal.substring(0,3));
+          // blanks sort to end
+          const an = ai === -1 ? 99 : ai;
+          const bn = bi === -1 ? 99 : bi;
+          return sortAsc ? an - bn : bn - an;
+        }
+
+        // For status col use the badge number prefix
+        if (col === 1) {
+          const an = parseFloat(aVal) || 99;
+          const bn = parseFloat(bVal) || 99;
+          return sortAsc ? an - bn : bn - an;
+        }
+
+        return sortAsc ? aVal.localeCompare(bVal) : bVal.localeCompare(aVal);
+      });
+
+      rows.forEach(r => tbody.appendChild(r));
+    }
+  </script>
 
   <footer>
     <strong>Jerel Smith</strong> &nbsp;·&nbsp; Senior Product Manager &nbsp;·&nbsp; Enterprise B2B · Used · E-Commerce
