@@ -177,6 +177,8 @@
       gap: 8px;
     }
     .tag {
+      display: inline-flex;
+      align-items: center;
       font-size: 11px;
       font-weight: 600;
       letter-spacing: .06em;
@@ -184,16 +186,30 @@
       border-radius: 100px;
       padding: 6px 16px;
       border: 1.5px solid;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background .2s, color .2s, border-color .2s, transform .2s;
     }
+    a.tag:hover { transform: translateY(-1px); }
     .tag-navy {
       color: var(--navy);
       border-color: var(--navy-light);
       background: rgba(15,31,75,0.04);
     }
+    a.tag-navy:hover {
+      background: var(--navy);
+      color: var(--white);
+      border-color: var(--navy);
+    }
     .tag-gold {
       color: var(--gold);
       border-color: var(--gold-border);
       background: var(--gold-dim);
+    }
+    a.tag-gold:hover {
+      background: var(--gold);
+      color: var(--white);
+      border-color: var(--gold);
     }
 
     /* ── Section ──────────────────────────────────────── */
@@ -596,9 +612,9 @@
       <h1>Jerel Smith<br><span class="accent">Senior Product Manager</span><br>Prototypes</h1>
       <p class="hero-sub">Building enterprise-grade PM demo experiences</p>
       <div class="tags">
-        <span class="tag tag-navy">Enterprise Platforms · B2B</span>
-        <span class="tag tag-navy">Used Web Liaison</span>
-        <span class="tag tag-gold">E-Commerce Search &amp; Navigation</span>
+        <a class="tag tag-navy" href="https://jerelproductmanager.github.io/b2b/">Enterprise Platforms · B2B</a>
+        <a class="tag tag-navy" href="https://jerelproductmanager.github.io/used/">Used Web Liaison</a>
+        <a class="tag tag-gold" href="https://jerelproductmanager.github.io/search-and-navigation/search-nav.html">E-Commerce Search &amp; Navigation</a>
       </div>
     </div>
   </div>
