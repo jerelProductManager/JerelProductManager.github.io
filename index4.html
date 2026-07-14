@@ -204,11 +204,6 @@
       padding: 64px 48px;
     }
 
-    /* Tighten the gap between the (collapsed) Product Roadmap and Live Demos */
-    .sec-roadmap { padding-bottom: 24px; }
-    .sec-roadmap .section-header { margin-bottom: 20px; }
-    .sec-demos { padding-top: 24px; }
-
     .section-header {
       display: flex;
       align-items: center;
@@ -603,9 +598,9 @@
     </div>
   </div>
 
-  <section class="sec-roadmap">
+  <section>
     <div class="section-header">
-      <h2>Product Roadmap</h2>
+      <h2>Live Demos</h2>
       <div class="section-rule"></div>
       <button class="roadmap-toggle-btn" id="roadmapBtn" onclick="toggleRoadmap()">
         View Roadmap <span class="chevron">▼</span>
@@ -613,6 +608,10 @@
     </div>
 
     <div class="roadmap-table-wrap" id="roadmapSection">
+      <div class="section-header" style="margin-top:32px;">
+        <h2>Product Roadmap</h2>
+        <div class="section-rule"></div>
+      </div>
       <div class="view-switch">
         <button class="vbtn active" data-view="timeline" onclick="switchRoadmapView('timeline', this)">Timeline</button>
         <button class="vbtn" data-view="kanban" onclick="switchRoadmapView('kanban', this)">Kanban</button>
@@ -622,13 +621,6 @@
       <div class="rm-view active" id="rmv-timeline"><div class="gantt" id="gantt"></div></div>
       <div class="rm-view" id="rmv-kanban"><div class="kanban" id="kanban"></div></div>
       <div class="rm-view" id="rmv-portfolio"><div class="lanes" id="lanes"></div></div>
-    </div>
-  </section>
-
-  <section class="sec-demos">
-    <div class="section-header">
-      <h2>Live Demos</h2>
-      <div class="section-rule"></div>
     </div>
 
     <div class="cards">
