@@ -250,7 +250,7 @@
     /* ── Cards ────────────────────────────────────────── */
     .cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-template-columns: repeat(4, 1fr);
       gap: 24px;
       opacity: 0;
       animation: fadeUp .7s ease forwards .65s;
@@ -434,7 +434,6 @@
       transition: transform .3s ease;
       font-size: 10px;
     }
-    .roadmap-toggle-btn.open .chevron { transform: rotate(180deg); }
 
     /* ── Roadmap Table ───────────────────────────────── */
     .roadmap-table-wrap {
@@ -624,7 +623,7 @@
       <h2>Product Roadmap</h2>
       <div class="section-rule"></div>
       <button class="roadmap-toggle-btn" id="roadmapBtn" onclick="toggleRoadmap()">
-        View Roadmap <span class="chevron">▼</span>
+        View Roadmap <span class="chevron">▲</span>
       </button>
     </div>
 
@@ -649,30 +648,7 @@
 
     <div class="cards">
 
-      <a class="card" href="https://jerelproductmanager.github.io/b2b/">
-        <span class="card-num">01</span>
-        <div class="card-category"><span class="pulse"></span>B2B · Enterprise</div>
-        <h3 class="card-title">B2B Hub</h3>
-        <p class="card-desc"></p>
-        <div class="card-footer">
-          <span class="card-cta">View Demo <span class="arrow">→</span></span>
-          <span class="card-label">Enterprise Platform</span>
-        </div>
-      </a>
-
-      <a class="card" href="https://jerelproductmanager.github.io/b2b-plus/">
-        <span class="card-num">02</span>
-        <div class="card-category"><span class="pulse"></span>B2B · K-12 Safety</div>
-        <h3 class="card-title">B2B Plus</h3>
-        <p class="card-desc"></p>
-        <div class="card-footer">
-          <span class="card-cta">View Demo <span class="arrow">→</span></span>
-          <span class="card-label">K-12 Safety Concepts</span>
-        </div>
-      </a>
-
       <a class="card" href="https://jerelproductmanager.github.io/used/">
-        <span class="card-num">03</span>
         <div class="card-category"><span class="pulse"></span>Used · Consumer</div>
         <h3 class="card-title">Used</h3>
         <p class="card-desc"></p>
@@ -683,13 +659,32 @@
       </a>
 
       <a class="card" href="https://jerelproductmanager.github.io/search-and-navigation/search-nav.html">
-        <span class="card-num">04</span>
         <div class="card-category"><span class="pulse"></span>Search · Navigation</div>
         <h3 class="card-title">Search &amp; Navigation</h3>
         <p class="card-desc"></p>
         <div class="card-footer">
           <span class="card-cta">View Demo <span class="arrow">→</span></span>
           <span class="card-label">E-Commerce Search &amp; Nav</span>
+        </div>
+      </a>
+
+      <a class="card" href="https://jerelproductmanager.github.io/b2b/">
+        <div class="card-category"><span class="pulse"></span>B2B · Enterprise</div>
+        <h3 class="card-title">B2B Hub</h3>
+        <p class="card-desc"></p>
+        <div class="card-footer">
+          <span class="card-cta">View Demo <span class="arrow">→</span></span>
+          <span class="card-label">Enterprise Platform</span>
+        </div>
+      </a>
+
+      <a class="card" href="https://jerelproductmanager.github.io/b2b-plus/">
+        <div class="card-category"><span class="pulse"></span>B2B · K-12 Safety</div>
+        <h3 class="card-title">B2B Plus</h3>
+        <p class="card-desc"></p>
+        <div class="card-footer">
+          <span class="card-cta">View Demo <span class="arrow">→</span></span>
+          <span class="card-label">K-12 Safety Concepts</span>
         </div>
       </a>
 
@@ -703,7 +698,7 @@
       const isOpen = wrap.classList.contains('visible');
       wrap.classList.toggle('visible', !isOpen);
       btn.classList.toggle('open', !isOpen);
-      btn.querySelector('.chevron').textContent = isOpen ? '▼' : '▲';
+      btn.querySelector('.chevron').textContent = isOpen ? '▲' : '▼';
       const label = isOpen ? 'View Roadmap ' : 'Hide Roadmap ';
       btn.childNodes[0].textContent = label;
     }
@@ -784,7 +779,10 @@
       const AXIS = ["Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec","Jan"]; // Mar'26 → Jan'27
       const NOW = "Jul";
       const idx = m => AXIS.indexOf(m);
-      const scheduled = RM_DATA.filter(d => d.start || d.end);
+      const effStart = d => d.start ? idx(d.start) : idx(d.end);
+      const effEnd   = d => d.end ? idx(d.end) : idx(d.start);
+      const scheduled = RM_DATA.filter(d => d.start || d.end)
+        .sort((a, b) => effStart(a) - effStart(b) || effEnd(a) - effEnd(b));
       const unscheduled = RM_DATA.filter(d => !d.start && !d.end);
       let html = '<div class="gantt-grid"><div></div><div class="g-axis">' +
         AXIS.map(m => '<div class="m ' + (m === NOW ? 'now' : '') + '">' + m + '</div>').join('') + '</div>';
