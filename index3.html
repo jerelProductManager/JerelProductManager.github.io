@@ -500,71 +500,6 @@
     @media (max-width: 900px) {
       .roadmap-section { padding-left: 24px; padding-right: 24px; }
     }
-
-    /* ── Roadmap view switcher ───────────────────────── */
-    .view-switch { display:flex; gap:8px; flex-wrap:wrap; margin:20px 0 26px; }
-    .vbtn {
-      font-family:var(--font); font-size:11px; font-weight:700; letter-spacing:.12em;
-      text-transform:uppercase; color:var(--navy); background:var(--white);
-      border:1.5px solid var(--gray-100); border-radius:100px; padding:7px 18px;
-      cursor:pointer; transition:all .2s;
-    }
-    .vbtn:hover { border-color:var(--gold-border); color:var(--gold); background:var(--gold-dim); }
-    .vbtn.active { background:var(--navy); border-color:var(--navy); color:#fff; }
-    .rm-view { display:none; }
-    .rm-view.active { display:block; animation:rmFade .4s ease; }
-    #rmv-timeline, #rmv-kanban { overflow-x:auto; padding-bottom:6px; }
-    @keyframes rmFade { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:none; } }
-
-    /* extra status badges */
-    .badge-research { background:#E3F6F8; color:#0E7C86; }
-    .badge-arch     { background:#FFF4E0; color:#B87A00; }
-    .badge-live     { background:rgba(200,153,58,.16); color:#8A6200; }
-
-    /* ── Kanban ──────────────────────────────────────── */
-    .kanban { display:flex; gap:16px; align-items:flex-start; min-width:100%; }
-    .kcol { flex:0 0 232px; background:var(--off-white); border:1px solid var(--gray-100); border-radius:12px; padding:12px; }
-    .kcol-head { display:flex; align-items:center; justify-content:space-between; margin-bottom:12px; padding:0 2px; }
-    .kcol-head .count { font-size:11px; font-weight:800; color:var(--gray-500); background:var(--white); border:1px solid var(--gray-100); border-radius:100px; padding:1px 9px; }
-    .kcard { background:var(--white); border:1px solid var(--gray-100); border-left:3px solid var(--gold); border-radius:10px; padding:11px 12px; margin-bottom:10px; box-shadow:var(--shadow-sm); }
-    .kcard:last-child { margin-bottom:0; }
-    .kcard .kt { font-size:12.5px; font-weight:700; line-height:1.3; margin-bottom:8px; }
-    .kcard .kmeta { display:flex; flex-wrap:wrap; gap:6px; align-items:center; }
-    .kcard .ksprint { font-size:10px; color:var(--gray-500); margin-left:auto; font-weight:600; white-space:nowrap; }
-    .kempty { font-size:11px; color:var(--gray-300); padding:6px 2px; }
-
-    /* ── Gantt ───────────────────────────────────────── */
-    .gantt { min-width:880px; }
-    .gantt-grid { display:grid; grid-template-columns:210px 1fr; }
-    .g-axis { display:grid; grid-auto-flow:column; grid-auto-columns:1fr; border-bottom:1px solid var(--gray-100); }
-    .g-axis .m { font-size:10px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--gray-500); text-align:center; padding:6px 0; border-left:1px solid var(--gray-100); }
-    .g-axis .m.now { color:var(--gold); }
-    .g-row { display:contents; }
-    .g-label { font-size:12px; font-weight:600; padding:9px 12px 9px 2px; border-bottom:1px solid var(--gray-100); display:flex; align-items:center; gap:8px; }
-    .g-label .dot { width:8px; height:8px; border-radius:2px; flex-shrink:0; }
-    .g-track { position:relative; border-bottom:1px solid var(--gray-100); border-left:1px solid var(--gray-100); min-height:36px; }
-    .g-track .cells { position:absolute; inset:0; display:grid; grid-auto-flow:column; grid-auto-columns:1fr; }
-    .g-track .cells span { border-left:1px solid var(--gray-100); }
-    .g-track .cells span:first-child { border-left:none; }
-    .g-track .cells span.now { background:rgba(200,153,58,.06); }
-    .g-bar { position:absolute; top:8px; bottom:8px; border-radius:6px; display:flex; align-items:center; padding:0 8px; font-size:10px; font-weight:700; color:#fff; box-shadow:var(--shadow-sm); z-index:2; overflow:hidden; white-space:nowrap; }
-    .g-unscheduled { margin-top:16px; padding-top:14px; border-top:1px dashed var(--gray-300); display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
-    .g-unscheduled .lbl { font-size:10px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--gray-500); }
-    .u-item { display:inline-flex; align-items:center; gap:6px; background:var(--off-white); border:1px solid var(--gray-100); border-radius:100px; padding:4px 10px 4px 6px; font-size:11px; font-weight:600; }
-    .u-item .dot { width:8px; height:8px; border-radius:2px; }
-
-    /* ── Swimlanes ───────────────────────────────────── */
-    .lanes { display:flex; flex-direction:column; gap:14px; }
-    .lane { display:grid; grid-template-columns:180px 1fr; gap:16px; align-items:stretch; }
-    .lane-head { border-left:4px solid var(--gold); padding:10px 14px; background:var(--off-white); border-radius:10px; display:flex; flex-direction:column; justify-content:center; }
-    .lane-head .name { font-size:14px; font-weight:800; }
-    .lane-head .cnt { font-size:11px; color:var(--gray-500); font-weight:600; margin-top:2px; }
-    .lane-body { display:flex; flex-wrap:wrap; gap:10px; padding:6px 0; }
-    .lcard { background:var(--white); border:1px solid var(--gray-100); border-radius:10px; padding:10px 12px; min-width:190px; box-shadow:var(--shadow-sm); }
-    .lcard .lt { font-size:12.5px; font-weight:700; line-height:1.3; margin-bottom:7px; }
-    .lcard .lmeta { display:flex; gap:6px; align-items:center; flex-wrap:wrap; }
-    .lcard .lcomp { font-size:10px; color:var(--gray-500); font-weight:600; margin-left:auto; }
-    @media (max-width:820px) { .lane { grid-template-columns:1fr; } }
   </style>
 </head>
 <body>
@@ -612,15 +547,147 @@
         <h2>Product Roadmap</h2>
         <div class="section-rule"></div>
       </div>
-      <div class="view-switch">
-        <button class="vbtn active" data-view="timeline" onclick="switchRoadmapView('timeline', this)">Timeline</button>
-        <button class="vbtn" data-view="kanban" onclick="switchRoadmapView('kanban', this)">Kanban</button>
-        <button class="vbtn" data-view="portfolio" onclick="switchRoadmapView('portfolio', this)">Portfolio</button>
-      </div>
-
-      <div class="rm-view active" id="rmv-timeline"><div class="gantt" id="gantt"></div></div>
-      <div class="rm-view" id="rmv-kanban"><div class="kanban" id="kanban"></div></div>
-      <div class="rm-view" id="rmv-portfolio"><div class="lanes" id="lanes"></div></div>
+      <table class="roadmap-table">
+        <thead>
+          <tr>
+            <th onclick="sortTable(0)">Title <span class="sort-icon">⇅</span></th>
+            <th onclick="sortTable(1)">Status <span class="sort-icon">⇅</span></th>
+            <th onclick="sortTable(2)">Portfolio <span class="sort-icon">⇅</span></th>
+            <th onclick="sortTable(3)">Component <span class="sort-icon">⇅</span></th>
+            <th onclick="sortTable(4)">Tech <span class="sort-icon">⇅</span></th>
+            <th onclick="sortTable(5)">Start <span class="sort-icon">⇅</span></th>
+            <th onclick="sortTable(6)">End <span class="sort-icon">⇅</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Post Hub</td>
+            <td><span class="badge badge-discovery">0. Discovery</span></td>
+            <td><span class="chip chip-b2b">B2B</span></td>
+            <td>B2B Hub</td>
+            <td>BHJ</td>
+            <td>Oct</td>
+            <td>Jan</td>
+          </tr>
+          <tr>
+            <td>Sell Used</td>
+            <td><span class="badge badge-design">2. Design</span></td>
+            <td><span class="chip chip-used">Used Operations</span></td>
+            <td>Cart</td>
+            <td>UNIX, BHJ, SEARCH</td>
+            <td>Aug</td>
+            <td>Jan</td>
+          </tr>
+          <tr>
+            <td>New Condition Rating Scale</td>
+            <td><span class="badge badge-design">2. Design</span></td>
+            <td><span class="chip chip-used">Used Operations</span></td>
+            <td>PLP/PDP</td>
+            <td>UNIX, BHJ</td>
+            <td>Aug</td>
+            <td>Aug</td>
+          </tr>
+          <tr>
+            <td>School Safety Landing Page</td>
+            <td><span class="badge badge-design">2. Design</span></td>
+            <td><span class="chip chip-b2b">B2B</span></td>
+            <td>B2B Hub Plus</td>
+            <td>BHJ</td>
+            <td>Sep</td>
+            <td>Sep</td>
+          </tr>
+          <tr>
+            <td>Nested Refinements</td>
+            <td><span class="badge badge-predev">3. Pre-Dev</span></td>
+            <td><span class="chip chip-web">Web Experience</span></td>
+            <td>PLP/Search</td>
+            <td>BHJ, BHIA, SEARCH</td>
+            <td>Aug</td>
+            <td>Aug</td>
+          </tr>
+          <tr>
+            <td>Mega Menu</td>
+            <td><span class="badge badge-predev">3. Pre-Dev</span></td>
+            <td><span class="chip chip-merch">Merchandising</span></td>
+            <td>Navigation</td>
+            <td>BHJ, BHIA, BIDW</td>
+            <td>Aug</td>
+            <td>Oct</td>
+          </tr>
+          <tr>
+            <td>Sunset Deal Zone</td>
+            <td><span class="badge badge-dev">4. Dev</span></td>
+            <td><span class="chip chip-web">Web Experience</span></td>
+            <td>Navigation</td>
+            <td>BHJ</td>
+            <td>Jun</td>
+            <td>Aug</td>
+          </tr>
+          <tr>
+            <td>Group by Condition</td>
+            <td><span class="badge badge-dev">4. Dev</span></td>
+            <td><span class="chip chip-used">Used Operations</span></td>
+            <td>PLP/PDP</td>
+            <td>BHJ</td>
+            <td>Jun</td>
+            <td>Jul</td>
+          </tr>
+          <tr>
+            <td>View All Category Landing Page</td>
+            <td><span class="badge badge-dev">4. Dev</span></td>
+            <td><span class="chip chip-web">Web Experience</span></td>
+            <td>Category Landing Page</td>
+            <td>BHJ, BHIA</td>
+            <td>—</td>
+            <td>Jul</td>
+          </tr>
+          <tr>
+            <td>My Gear Release 2</td>
+            <td><span class="badge badge-dev">4. Dev</span></td>
+            <td><span class="chip chip-web">Web Experience</span></td>
+            <td>My Gear</td>
+            <td>BHJ, BHIA, SEARCH</td>
+            <td>Aug</td>
+            <td>Aug</td>
+          </tr>
+          <tr>
+            <td>Highlighted Refinements</td>
+            <td><span class="badge badge-dev">4. Dev</span></td>
+            <td><span class="chip chip-merch">Merchandising</span></td>
+            <td>PLP/Search</td>
+            <td>BHJ, Search, BHIA</td>
+            <td>May</td>
+            <td>Jul</td>
+          </tr>
+          <tr>
+            <td>Roll Up SKUs</td>
+            <td><span class="badge badge-parking">99. Parking Lot</span></td>
+            <td><span class="chip chip-web">Web Experience</span></td>
+            <td>PLP/Search</td>
+            <td>BHJ, BHIA, SEARCH</td>
+            <td>—</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>B2B Hub</td>
+            <td><span class="badge badge-dev">4. Dev</span></td>
+            <td><span class="chip chip-b2b">B2B</span></td>
+            <td>B2B Hub</td>
+            <td>BHJ</td>
+            <td>—</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>Actual Used Images</td>
+            <td><span class="badge badge-impl">5. Implementation</span></td>
+            <td><span class="chip chip-used">Used Operations</span></td>
+            <td>PDP / Images</td>
+            <td>BHJ, BHIA</td>
+            <td>Mar</td>
+            <td>Jun</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
     <div class="cards">
@@ -684,123 +751,57 @@
       btn.childNodes[0].textContent = label;
     }
 
-    /* ── Roadmap views (Timeline / Kanban / Portfolio) ── */
-    function switchRoadmapView(view, btn) {
-      document.querySelectorAll('.rm-view').forEach(v => v.classList.remove('active'));
-      document.getElementById('rmv-' + view).classList.add('active');
-      document.querySelectorAll('.view-switch .vbtn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
+    let sortCol = -1, sortAsc = true;
+
+    function sortTable(col) {
+      const table = document.querySelector('.roadmap-table');
+      const tbody = table.querySelector('tbody');
+      const ths = table.querySelectorAll('th');
+      const rows = Array.from(tbody.querySelectorAll('tr'));
+
+      // Toggle direction if same column
+      if (sortCol === col) { sortAsc = !sortAsc; }
+      else { sortCol = col; sortAsc = true; }
+
+      // Update header classes + icons
+      ths.forEach((th, i) => {
+        th.classList.remove('sort-asc', 'sort-desc');
+        th.querySelector('.sort-icon').textContent = '⇅';
+        if (i === col) {
+          th.classList.add(sortAsc ? 'sort-asc' : 'sort-desc');
+          th.querySelector('.sort-icon').textContent = sortAsc ? '↑' : '↓';
+        }
+      });
+
+      // Month order for sprint columns
+      const months = ['jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec'];
+      const isSprintCol = col >= 5;
+
+      rows.sort((a, b) => {
+        let aVal = a.cells[col].textContent.trim().toLowerCase().replace('—','');
+        let bVal = b.cells[col].textContent.trim().toLowerCase().replace('—','');
+
+        if (isSprintCol) {
+          const ai = months.indexOf(aVal.substring(0,3));
+          const bi = months.indexOf(bVal.substring(0,3));
+          // blanks sort to end
+          const an = ai === -1 ? 99 : ai;
+          const bn = bi === -1 ? 99 : bi;
+          return sortAsc ? an - bn : bn - an;
+        }
+
+        // For status col use the badge number prefix
+        if (col === 1) {
+          const an = parseFloat(aVal) || 99;
+          const bn = parseFloat(bVal) || 99;
+          return sortAsc ? an - bn : bn - an;
+        }
+
+        return sortAsc ? aVal.localeCompare(bVal) : bVal.localeCompare(aVal);
+      });
+
+      rows.forEach(r => tbody.appendChild(r));
     }
-
-    const RM_DATA = [
-      {t:"Post Hub",              s:"0. Discovery",      p:"B2B",             comp:"B2B Hub",              start:"Oct", end:"Jan"},
-      {t:"School Safety Landing Page", s:"2. Design",    p:"B2B",             comp:"B2B Hub Plus",         start:"Sep", end:"Sep"},
-      {t:"Sell Used",             s:"2B. Research",      p:"Used Operations", comp:"Cart",                 start:"Sep", end:"Jan"},
-      {t:"New Condition Rating Scale", s:"3. Architecture", p:"Used Operations", comp:"PLP/PDP",         start:"Aug", end:"Aug"},
-      {t:"Mega Menu",             s:"3. Architecture",   p:"Merchandising",   comp:"Navigation",           start:"Aug", end:"Oct"},
-      {t:"Nested Refinements",    s:"4. Dev",            p:"Web Experience",  comp:"PLP/Search",           start:"Sep", end:"Nov"},
-      {t:"EDU Homepage",          s:"4. Dev",            p:"B2B",             comp:"EDU",                  start:"Aug", end:"Aug"},
-      {t:"Group by Condition",    s:"4. Dev",            p:"Used Operations", comp:"PLP/PDP",              start:"Jun", end:"Jul"},
-      {t:"My Gear Release 2",     s:"4. Dev",            p:"Web Experience",  comp:"My Gear",              start:null,  end:null},
-      {t:"Highlighted Refinements", s:"4. Dev",          p:"Merchandising",   comp:"PLP/Search",           start:"May", end:"Jul"},
-      {t:"B2B Hub",               s:"4. Dev",            p:"B2B",             comp:"B2B Hub",              start:null,  end:null},
-      {t:"Actual Used Images",    s:"5. Implementation", p:"Used Operations", comp:"PDP / Images",         start:"Mar", end:"Jun"},
-      {t:"Sunset Deal Zone",      s:"7. Live",           p:"Web Experience",  comp:"Navigation",           start:"Jun", end:"Aug"},
-      {t:"View All Category Landing Page", s:"7. Live",  p:"Web Experience",  comp:"Category Landing Page",start:null,  end:"Jul"},
-      {t:"Roll Up SKUs",          s:"99. Parking Lot",   p:"Web Experience",  comp:"PLP/Search",           start:null,  end:null},
-      {t:"B2B The Studio Categories", s:"99. Parking Lot", p:"B2B",           comp:"B2B Hub",              start:null,  end:null},
-    ];
-    const RM_STAGES = [
-      {key:"0. Discovery",      short:"Discovery",      cls:"badge-discovery", color:"#7B82A0"},
-      {key:"2. Design",         short:"Design",         cls:"badge-design",    color:"#1A5CA8"},
-      {key:"2B. Research",      short:"Research",        cls:"badge-research",  color:"#0E7C86"},
-      {key:"3. Architecture",   short:"Architecture",   cls:"badge-arch",      color:"#B87A00"},
-      {key:"4. Dev",            short:"Dev",            cls:"badge-dev",       color:"#1A7A38"},
-      {key:"5. Implementation", short:"Implementation", cls:"badge-impl",      color:"#6B00B8"},
-      {key:"7. Live",           short:"Live",           cls:"badge-live",      color:"#C8993A"},
-      {key:"99. Parking Lot",   short:"Parking Lot",    cls:"badge-parking",   color:"#B4B4B4"},
-    ];
-    const RM_PORT = {
-      "B2B":             {cls:"chip-b2b",   color:"#C8993A"},
-      "Used Operations": {cls:"chip-used",  color:"#C45000"},
-      "Web Experience":  {cls:"chip-web",   color:"#B80000"},
-      "Merchandising":   {cls:"chip-merch", color:"#8B008B"},
-    };
-    const RM_PORT_ORDER = ["B2B","Used Operations","Web Experience","Merchandising"];
-    const rmStage = k => RM_STAGES.find(x => x.key === k);
-    const rmBadge = s => { const m = rmStage(s); return '<span class="badge ' + m.cls + '">' + s + '</span>'; };
-    const rmChip  = p => '<span class="chip ' + RM_PORT[p].cls + '">' + p + '</span>';
-
-    /* Kanban */
-    (function() {
-      const wrap = document.getElementById('kanban');
-      if (!wrap) return;
-      RM_STAGES.forEach(st => {
-        const items = RM_DATA.filter(d => d.s === st.key);
-        const col = document.createElement('div');
-        col.className = 'kcol';
-        col.innerHTML = '<div class="kcol-head"><span class="badge ' + st.cls + '">' + st.short + '</span><span class="count">' + items.length + '</span></div>';
-        items.forEach(d => {
-          const sprint = (d.start || d.end) ? ((d.start || '—') + ' → ' + (d.end || '—')) : 'Undated';
-          const card = document.createElement('div');
-          card.className = 'kcard';
-          card.style.borderLeftColor = RM_PORT[d.p].color;
-          card.innerHTML = '<div class="kt">' + d.t + '</div><div class="kmeta">' + rmChip(d.p) + '<span class="ksprint">' + sprint + '</span></div>';
-          col.appendChild(card);
-        });
-        if (!items.length) col.innerHTML += '<div class="kempty">—</div>';
-        wrap.appendChild(col);
-      });
-    })();
-
-    /* Gantt */
-    (function() {
-      const wrap = document.getElementById('gantt');
-      if (!wrap) return;
-      const AXIS = ["Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec","Jan"]; // Mar'26 → Jan'27
-      const NOW = "Jul";
-      const idx = m => AXIS.indexOf(m);
-      const scheduled = RM_DATA.filter(d => d.start || d.end);
-      const unscheduled = RM_DATA.filter(d => !d.start && !d.end);
-      let html = '<div class="gantt-grid"><div></div><div class="g-axis">' +
-        AXIS.map(m => '<div class="m ' + (m === NOW ? 'now' : '') + '">' + m + '</div>').join('') + '</div>';
-      scheduled.forEach(d => {
-        const meta = RM_PORT[d.p];
-        let s = d.start ? idx(d.start) : idx(d.end);
-        let e = d.end ? idx(d.end) : idx(d.start);
-        if (s < 0) s = 0;
-        if (e < 0) e = AXIS.length - 1;
-        const leftPct = (s / AXIS.length) * 100;
-        const widthPct = ((e - s + 1) / AXIS.length) * 100;
-        const cells = AXIS.map(m => '<span class="' + (m === NOW ? 'now' : '') + '"></span>').join('');
-        const label = (d.start && d.end && d.start !== d.end) ? (d.start + ' – ' + d.end) : (d.end || d.start);
-        html += '<div class="g-row"><div class="g-label"><span class="dot" style="background:' + meta.color + '"></span>' + d.t + '</div>' +
-          '<div class="g-track"><div class="cells">' + cells + '</div>' +
-          '<div class="g-bar" style="left:' + leftPct + '%;width:' + widthPct + '%;background:' + meta.color + '">' + label + '</div></div></div>';
-      });
-      html += '</div>';
-      if (unscheduled.length) {
-        html += '<div class="g-unscheduled"><span class="lbl">Undated backlog</span>' +
-          unscheduled.map(d => '<span class="u-item"><span class="dot" style="background:' + RM_PORT[d.p].color + '"></span>' + d.t + '</span>').join('') + '</div>';
-      }
-      wrap.innerHTML = html;
-    })();
-
-    /* Swimlanes */
-    (function() {
-      const wrap = document.getElementById('lanes');
-      if (!wrap) return;
-      RM_PORT_ORDER.forEach(p => {
-        const items = RM_DATA.filter(d => d.p === p);
-        const lane = document.createElement('div');
-        lane.className = 'lane';
-        const head = '<div class="lane-head" style="border-left-color:' + RM_PORT[p].color + '"><div class="name">' + p + '</div><div class="cnt">' + items.length + ' initiative' + (items.length !== 1 ? 's' : '') + '</div></div>';
-        const body = '<div class="lane-body">' + items.map(d =>
-          '<div class="lcard" style="border-top:3px solid ' + RM_PORT[p].color + '"><div class="lt">' + d.t + '</div><div class="lmeta">' + rmBadge(d.s) + '<span class="lcomp">' + d.comp + '</span></div></div>').join('') + '</div>';
-        lane.innerHTML = head + body;
-        wrap.appendChild(lane);
-      });
-    })();
   </script>
 
   <footer>
