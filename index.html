@@ -250,7 +250,7 @@
     /* ── Cards ────────────────────────────────────────── */
     .cards {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 24px;
       opacity: 0;
       animation: fadeUp .7s ease forwards .65s;
@@ -396,6 +396,9 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
+    @media (max-width: 1150px) {
+      .cards { grid-template-columns: repeat(2, 1fr); }
+    }
     @media (max-width: 900px) {
       .cards { grid-template-columns: 1fr; }
       .hero { flex-direction: column; align-items: flex-start; gap: 32px; padding: 48px 28px; } .photo { width: 100%; height: 220px; }
@@ -650,11 +653,21 @@
 
       <a class="card" href="https://jerelproductmanager.github.io/used/">
         <div class="card-category"><span class="pulse"></span>Used · Consumer</div>
-        <h3 class="card-title">Used</h3>
+        <h3 class="card-title">B&amp;H Used</h3>
         <p class="card-desc"></p>
         <div class="card-footer">
           <span class="card-cta">View Demo <span class="arrow">→</span></span>
           <span class="card-label">Used Web Liaison</span>
+        </div>
+      </a>
+
+      <a class="card" href="https://jerelproductmanager.github.io/the-studio-bnh/">
+        <div class="card-category"><span class="pulse"></span>Studio · Creative</div>
+        <h3 class="card-title">The Studio B&amp;H</h3>
+        <p class="card-desc"></p>
+        <div class="card-footer">
+          <span class="card-cta">View Demo <span class="arrow">→</span></span>
+          <span class="card-label">Creative Workspace</span>
         </div>
       </a>
 
@@ -670,7 +683,7 @@
 
       <a class="card" href="https://jerelproductmanager.github.io/b2b/">
         <div class="card-category"><span class="pulse"></span>B2B · Enterprise</div>
-        <h3 class="card-title">B2B Hub</h3>
+        <h3 class="card-title">B2B - Hub</h3>
         <p class="card-desc"></p>
         <div class="card-footer">
           <span class="card-cta">View Demo <span class="arrow">→</span></span>
@@ -680,11 +693,21 @@
 
       <a class="card" href="https://jerelproductmanager.github.io/b2b-plus/">
         <div class="card-category"><span class="pulse"></span>B2B · K-12 Safety</div>
-        <h3 class="card-title">B2B Plus</h3>
+        <h3 class="card-title">B2B - K-12 Safety</h3>
         <p class="card-desc"></p>
         <div class="card-footer">
           <span class="card-cta">View Demo <span class="arrow">→</span></span>
           <span class="card-label">K-12 Safety Concepts</span>
+        </div>
+      </a>
+
+      <a class="card" href="https://jerelproductmanager.github.io/b2b-edu/">
+        <div class="card-category"><span class="pulse"></span>B2B · Education</div>
+        <h3 class="card-title">B2B - EDU</h3>
+        <p class="card-desc"></p>
+        <div class="card-footer">
+          <span class="card-cta">View Demo <span class="arrow">→</span></span>
+          <span class="card-label">Education Concepts</span>
         </div>
       </a>
 
