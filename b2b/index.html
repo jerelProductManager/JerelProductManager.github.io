@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Jerel Smith — Product Manager Prototypes</title>
+  <title>B2B Hub — Jerel Smith</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
   <style>
@@ -32,7 +32,6 @@
     }
 
     html { scroll-behavior: smooth; }
-
     body {
       background: var(--white);
       color: var(--text-navy);
@@ -42,14 +41,12 @@
       flex-direction: column;
     }
 
-    /* ── Top accent bar ───────────────────────────────── */
     .top-bar {
       height: 4px;
       background: linear-gradient(90deg, var(--navy) 0%, var(--gold) 60%, var(--gold-light) 100%);
     }
 
-    /* ── Breadcrumb nav ──────────────────────────────────────────── */
-/* ── Breadcrumb nav ──────────────────────────────────────────── */
+    /* ── Breadcrumb nav ─────────────────────────────────────── */
     nav {
       padding: 16px 48px;
       border-bottom: 1px solid var(--gray-100);
@@ -82,17 +79,16 @@
       color: var(--navy);
     }
 
-    /* ── Hero ─────────────────────────────────────────── */
+    /* ── Hero ───────────────────────────────────────────────── */
     .hero {
       background: var(--off-white);
-      padding: 72px 48px 64px;
+      padding: 56px 48px 52px;
       display: flex;
       align-items: center;
-      gap: 56px;
+      gap: 48px;
       position: relative;
       overflow: hidden;
     }
-
     .hero::before {
       content: '';
       position: absolute;
@@ -102,8 +98,6 @@
       background: linear-gradient(135deg, transparent 40%, rgba(15,31,75,0.03) 100%);
       pointer-events: none;
     }
-
-    /* ── Photo ────────────────────────────────────────── */
     .photo-wrap {
       flex-shrink: 0;
       position: relative;
@@ -119,16 +113,14 @@
       pointer-events: none;
     }
     .photo {
-      width: 220px;
-      height: 290px;
+      width: 210px;
+      height: 278px;
       border-radius: 12px;
       object-fit: cover;
       object-position: 28% top;
       display: block;
       box-shadow: 0 8px 32px rgba(15,31,75,0.14);
     }
-
-    /* ── Hero text ────────────────────────────────────── */
     .hero-text {
       flex: 1;
       opacity: 0;
@@ -140,11 +132,7 @@
       gap: 10px;
       margin-bottom: 16px;
     }
-    .eyebrow-rule {
-      width: 28px; height: 2px;
-      background: var(--gold);
-      border-radius: 2px;
-    }
+    .eyebrow-rule { width: 28px; height: 2px; background: var(--gold); border-radius: 2px; }
     .eyebrow-text {
       font-size: 10px;
       font-weight: 700;
@@ -152,7 +140,6 @@
       text-transform: uppercase;
       color: var(--gold);
     }
-
     h1 {
       font-size: clamp(26px, 4vw, 42px);
       font-weight: 900;
@@ -162,7 +149,6 @@
       margin-bottom: 6px;
     }
     h1 .accent { color: var(--gold); }
-
     .hero-sub {
       font-size: 14px;
       font-weight: 400;
@@ -170,15 +156,8 @@
       margin-bottom: 28px;
       letter-spacing: .01em;
     }
-
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; }
     .tag {
-      display: inline-flex;
-      align-items: center;
       font-size: 11px;
       font-weight: 600;
       letter-spacing: .06em;
@@ -186,599 +165,180 @@
       border-radius: 100px;
       padding: 6px 16px;
       border: 1.5px solid;
-      text-decoration: none;
-      cursor: pointer;
-      transition: background .2s, color .2s, border-color .2s, transform .2s;
     }
-    a.tag:hover { transform: translateY(-1px); }
-    .tag-navy {
-      color: var(--navy);
-      border-color: var(--navy-light);
-      background: rgba(15,31,75,0.04);
-    }
-    a.tag-navy:hover {
-      background: var(--navy);
-      color: var(--white);
-      border-color: var(--navy);
-    }
-    .tag-gold {
-      color: var(--gold);
-      border-color: var(--gold-border);
-      background: var(--gold-dim);
-    }
-    a.tag-gold:hover {
-      background: var(--gold);
-      color: var(--white);
-      border-color: var(--gold);
-    }
+    .tag-navy { color: var(--navy); border-color: var(--navy-light); background: rgba(15,31,75,0.04); }
+    .tag-gold { color: var(--gold); border-color: var(--gold-border); background: var(--gold-dim); }
 
-    /* ── Section ──────────────────────────────────────── */
-    section {
-      max-width: 1100px;
-      margin: 0 auto;
-      width: 100%;
-      padding: 64px 48px;
-    }
-
-    /* Tighten the gap between the (collapsed) Product Roadmap and Live Demos */
-    .sec-roadmap { padding-bottom: 24px; }
-    .sec-roadmap .section-header { margin-bottom: 20px; }
-    .sec-demos { padding-top: 24px; }
-
-    .section-header {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 40px;
-      opacity: 0;
-      animation: fadeUp .5s ease forwards .5s;
-      flex-wrap: wrap;
-    }
-    .section-header h2 {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: .22em;
-      text-transform: uppercase;
-      color: var(--gray-500);
-    }
-    .section-rule {
-      flex: 1;
-      height: 1px;
-      background: var(--gray-100);
-    }
-
-    /* ── Cards ────────────────────────────────────────── */
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      opacity: 0;
-      animation: fadeUp .7s ease forwards .65s;
-    }
-
-    .card {
-      background: var(--white);
-      border: 1.5px solid var(--gray-100);
-      border-radius: var(--r);
-      padding: 32px 28px 28px;
-      text-decoration: none;
-      color: inherit;
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-      box-shadow: var(--shadow-sm);
-      transition: border-color .22s, box-shadow .22s, transform .22s;
-      position: relative;
-      overflow: hidden;
-    }
-    .card::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--navy), var(--gold));
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform .3s ease;
-    }
-    .card:hover {
-      border-color: var(--gold-border);
-      box-shadow: var(--shadow-lg);
-      transform: translateY(-4px);
-    }
-    .card:hover::after { transform: scaleX(1); }
-
-    .card-category {
-      display: flex;
-      align-items: center;
-      gap: 7px;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 16px;
-    }
-    .pulse {
-      width: 6px; height: 6px;
-      border-radius: 50%;
-      background: var(--gold);
-      animation: pulse 2.4s ease infinite;
-    }
-    @keyframes pulse {
-      0%,100% { opacity: 1; box-shadow: 0 0 0 0 rgba(200,153,58,.4); }
-      50%      { opacity: .7; box-shadow: 0 0 0 4px rgba(200,153,58,0); }
-    }
-
-    .card-num {
-      position: absolute;
-      top: 28px; right: 28px;
-      font-size: 48px;
-      font-weight: 900;
-      color: var(--gray-100);
-      line-height: 1;
-      letter-spacing: -.04em;
-      pointer-events: none;
-    }
-
-    .card-title {
-      font-size: 22px;
-      font-weight: 800;
-      color: var(--navy);
-      line-height: 1.15;
-      margin-bottom: 12px;
-      letter-spacing: -.01em;
-    }
-
-    .card-desc {
-      font-size: 13px;
-      font-weight: 400;
-      line-height: 1.7;
-      color: var(--gray-500);
-      flex: 1;
-      margin-bottom: 28px;
-    }
-
-    .card-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding-top: 20px;
-      border-top: 1px solid var(--gray-100);
-      margin-top: auto;
-    }
-    .card-cta {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-      color: var(--navy);
-      transition: gap .2s, color .2s;
-    }
-    .card:hover .card-cta {
-      gap: 10px;
-      color: var(--gold);
-    }
-    .arrow {
-      display: inline-block;
-      font-size: 14px;
-      transition: transform .2s;
-    }
-    .card:hover .arrow { transform: translateX(2px); }
-
-    .card-label {
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      color: var(--gray-300);
-    }
-
-    /* ── Footer ──────────────────────────────────────── */
+    /* ── Footer ─────────────────────────────────────────────── */
     footer {
-      margin-top: auto;
-      background: var(--navy);
-      color: rgba(255,255,255,0.35);
       text-align: center;
       padding: 24px 48px;
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: .08em;
+      border-top: 1px solid var(--gray-100);
+      font-size: 12px;
+      color: var(--gray-500);
+      letter-spacing: .06em;
     }
-    footer strong { color: var(--gold); font-weight: 600; }
+    footer strong { color: var(--navy); font-weight: 600; }
 
-    /* ── Keyframes ───────────────────────────────────── */
+    /* ── Animations ─────────────────────────────────────────── */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(18px); }
       to   { opacity: 1; transform: translateY(0); }
     }
-
-    @media (max-width: 1150px) {
-      .cards { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 900px) {
-      .cards { grid-template-columns: 1fr; }
-      .hero { flex-direction: column; align-items: flex-start; gap: 32px; padding: 48px 28px; } .photo { width: 100%; height: 220px; }
-      nav, section { padding-left: 24px; padding-right: 24px; }
-    }
-    @media (max-width: 600px) {
-      .cards { grid-template-columns: 1fr; }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: .4; }
+      50%       { transform: scale(1.6); opacity: 0; }
     }
 
-    /* ── Roadmap Toggle Button ───────────────────────── */
-    .roadmap-toggle-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: none;
-      border: 1.5px solid var(--navy-light);
-      border-radius: 100px;
-      padding: 6px 16px;
-      font-family: var(--font);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: var(--navy);
-      cursor: pointer;
-      transition: border-color .2s, color .2s, background .2s;
-      flex-shrink: 0;
-    }
-    .roadmap-toggle-btn:hover {
-      border-color: var(--gold-border);
-      color: var(--gold);
-      background: var(--gold-dim);
-    }
-    .roadmap-toggle-btn .chevron {
-      display: inline-block;
-      transition: transform .3s ease;
-      font-size: 10px;
-    }
-
-    /* ── Roadmap Table ───────────────────────────────── */
-    .roadmap-table-wrap {
-      display: none;
-      overflow-x: auto;
-      margin-bottom: 40px;
-    }
-    .roadmap-table-wrap.visible { display: block; }
-    .roadmap-table-wrap .section-header {
-      opacity: 1;
-      animation: none;
-    }
-    .roadmap-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 12px;
-    }
-    .roadmap-table th {
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      color: var(--gray-500);
-      text-align: left;
-      padding: 10px 14px;
-      border-bottom: 1.5px solid var(--gray-100);
-      white-space: nowrap;
-      cursor: pointer;
-      user-select: none;
-      transition: color .2s;
-    }
-    .roadmap-table th:hover { color: var(--navy); }
-    .roadmap-table th.sort-asc,
-    .roadmap-table th.sort-desc { color: var(--gold); }
-    .roadmap-table th .sort-icon {
-      margin-left: 4px;
-      opacity: .35;
-      font-size: 9px;
-      transition: opacity .2s;
-    }
-    .roadmap-table th:hover .sort-icon { opacity: .7; }
-    .roadmap-table th.sort-asc .sort-icon,
-    .roadmap-table th.sort-desc .sort-icon { opacity: 1; }
-    .roadmap-table td {
-      padding: 10px 14px;
-      border-bottom: 1px solid var(--gray-100);
-      color: var(--text-navy);
-      vertical-align: middle;
-    }
-    .roadmap-table tr:last-child td { border-bottom: none; }
-    .roadmap-table tr:hover td { background: var(--off-white); }
-
-    /* Status badges */
-    .badge {
-      display: inline-block;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      border-radius: 100px;
-      padding: 3px 10px;
-    }
-    .badge-discovery  { background: #EEF0F6; color: #7B82A0; }
-    .badge-design     { background: #EDF5FF; color: #1A5CA8; }
-    .badge-predev     { background: #FFF4E0; color: #B87A00; }
-    .badge-dev        { background: #E6F4EA; color: #1A7A38; }
-    .badge-impl       { background: #F0E6FF; color: #6B00B8; }
-    .badge-parking    { background: #F5F5F5; color: #999; }
-
-    /* Portfolio chips */
-    .chip {
-      display: inline-block;
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: .06em;
-      border-radius: 4px;
-      padding: 2px 8px;
-    }
-    .chip-b2b    { background: rgba(200,153,58,.14); color: var(--gold); }
-    .chip-used   { background: #FFF0EA; color: #C45000; }
-    .chip-web    { background: #FFEAEA; color: #B80000; }
-    .chip-merch  { background: #FFF0FC; color: #8B008B; }
-
-    @media (max-width: 900px) {
-      .roadmap-section { padding-left: 24px; padding-right: 24px; }
-    }
-
-    /* ── Roadmap view switcher ───────────────────────── */
-    .view-switch { display:flex; gap:8px; flex-wrap:wrap; margin:20px 0 26px; }
-    .vbtn {
-      font-family:var(--font); font-size:11px; font-weight:700; letter-spacing:.12em;
-      text-transform:uppercase; color:var(--navy); background:var(--white);
-      border:1.5px solid var(--gray-100); border-radius:100px; padding:7px 18px;
-      cursor:pointer; transition:all .2s;
-    }
-    .vbtn:hover { border-color:var(--gold-border); color:var(--gold); background:var(--gold-dim); }
-    .vbtn.active { background:var(--navy); border-color:var(--navy); color:#fff; }
-    .rm-view { display:none; }
-    .rm-view.active { display:block; animation:rmFade .4s ease; }
-    #rmv-timeline, #rmv-kanban { overflow-x:auto; padding-bottom:6px; }
-    @keyframes rmFade { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:none; } }
-
-    /* extra status badges */
-    .badge-research { background:#E3F6F8; color:#0E7C86; }
-    .badge-arch     { background:#FFF4E0; color:#B87A00; }
-    .badge-live     { background:rgba(200,153,58,.16); color:#8A6200; }
-
-    /* ── Kanban ──────────────────────────────────────── */
-    .kanban { display:flex; gap:16px; align-items:flex-start; min-width:100%; }
-    .kcol { flex:0 0 232px; background:var(--off-white); border:1px solid var(--gray-100); border-radius:12px; padding:12px; }
-    .kcol-head { display:flex; align-items:center; justify-content:space-between; margin-bottom:12px; padding:0 2px; }
-    .kcol-head .count { font-size:11px; font-weight:800; color:var(--gray-500); background:var(--white); border:1px solid var(--gray-100); border-radius:100px; padding:1px 9px; }
-    .kcard { background:var(--white); border:1px solid var(--gray-100); border-left:3px solid var(--gold); border-radius:10px; padding:11px 12px; margin-bottom:10px; box-shadow:var(--shadow-sm); }
-    .kcard:last-child { margin-bottom:0; }
-    .kcard .kt { font-size:12.5px; font-weight:700; line-height:1.3; margin-bottom:8px; }
-    .kcard .kmeta { display:flex; flex-wrap:wrap; gap:6px; align-items:center; }
-    .kcard .ksprint { font-size:10px; color:var(--gray-500); margin-left:auto; font-weight:600; white-space:nowrap; }
-    .kempty { font-size:11px; color:var(--gray-300); padding:6px 2px; }
-
-    /* ── Gantt ───────────────────────────────────────── */
-    .gantt { min-width:880px; }
-    .gantt-grid { display:grid; grid-template-columns:210px 1fr; }
-    .g-axis { display:grid; grid-auto-flow:column; grid-auto-columns:1fr; border-bottom:1px solid var(--gray-100); }
-    .g-axis .m { font-size:10px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--gray-500); text-align:center; padding:6px 0; border-left:1px solid var(--gray-100); }
-    .g-axis .m.now { color:var(--gold); }
-    .g-row { display:contents; }
-    .g-label { font-size:12px; font-weight:600; padding:9px 12px 9px 2px; border-bottom:1px solid var(--gray-100); display:flex; align-items:center; gap:8px; }
-    .g-label .dot { width:8px; height:8px; border-radius:2px; flex-shrink:0; }
-    .g-track { position:relative; border-bottom:1px solid var(--gray-100); border-left:1px solid var(--gray-100); min-height:36px; }
-    .g-track .cells { position:absolute; inset:0; display:grid; grid-auto-flow:column; grid-auto-columns:1fr; }
-    .g-track .cells span { border-left:1px solid var(--gray-100); }
-    .g-track .cells span:first-child { border-left:none; }
-    .g-track .cells span.now { background:rgba(200,153,58,.06); }
-    .g-bar { position:absolute; top:8px; bottom:8px; border-radius:6px; display:flex; align-items:center; padding:0 8px; font-size:10px; font-weight:700; color:#fff; box-shadow:var(--shadow-sm); z-index:2; overflow:hidden; white-space:nowrap; }
-    .g-unscheduled { margin-top:16px; padding-top:14px; border-top:1px dashed var(--gray-300); display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
-    .g-unscheduled .lbl { font-size:10px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--gray-500); }
-    .u-item { display:inline-flex; align-items:center; gap:6px; background:var(--off-white); border:1px solid var(--gray-100); border-radius:100px; padding:4px 10px 4px 6px; font-size:11px; font-weight:600; }
-    .u-item .dot { width:8px; height:8px; border-radius:2px; }
-
-    /* ── Swimlanes ───────────────────────────────────── */
-    .lanes { display:flex; flex-direction:column; gap:14px; }
-    .lane { display:grid; grid-template-columns:180px 1fr; gap:16px; align-items:stretch; }
-    .lane-head { border-left:4px solid var(--gold); padding:10px 14px; background:var(--off-white); border-radius:10px; display:flex; flex-direction:column; justify-content:center; }
-    .lane-head .name { font-size:14px; font-weight:800; }
-    .lane-head .cnt { font-size:11px; color:var(--gray-500); font-weight:600; margin-top:2px; }
-    .lane-body { display:flex; flex-wrap:wrap; gap:10px; padding:6px 0; }
-    .lcard { background:var(--white); border:1px solid var(--gray-100); border-radius:10px; padding:10px 12px; min-width:190px; box-shadow:var(--shadow-sm); }
-    .lcard .lt { font-size:12.5px; font-weight:700; line-height:1.3; margin-bottom:7px; }
-    .lcard .lmeta { display:flex; gap:6px; align-items:center; flex-wrap:wrap; }
-    .lcard .lcomp { font-size:10px; color:var(--gray-500); font-weight:600; margin-left:auto; }
-    @media (max-width:820px) { .lane { grid-template-columns:1fr; } }
-
-    /* ── Card thumbnail + content (rebuilt) ───────────── */
-    .card { padding: 0; }
-    .card-thumb {
-      position: relative;
-      aspect-ratio: 16 / 10;
-      overflow: hidden;
-      background: var(--off-white);
-      border-bottom: 1px solid var(--gray-100);
-    }
-    .card-thumb img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      object-position: top center;
-      display: block;
-      transition: transform .5s cubic-bezier(.2,.7,.3,1);
-    }
-    .card:hover .card-thumb img { transform: scale(1.04); }
-    .card-thumb::after {
-      content: '';
-      position: absolute; inset: 0;
-      background: linear-gradient(180deg, rgba(15,31,75,0) 55%, rgba(15,31,75,.10) 100%);
-      pointer-events: none;
-    }
-
-    /* Status chip on the thumbnail */
-    .card-status {
-      position: absolute;
-      top: 12px; right: 12px;
-      z-index: 2;
-      font-size: 9.5px;
-      font-weight: 700;
-      letter-spacing: .10em;
-      text-transform: uppercase;
-      padding: 5px 10px;
-      border-radius: 999px;
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      box-shadow: 0 1px 6px rgba(15,31,75,.14);
-    }
-    .card-status--dev {
-      background: rgba(15,31,75,.88);
-      color: #fff;
-      border: 1px solid rgba(255,255,255,.16);
-    }
-    .card-status--design {
-      background: rgba(200,153,58,.94);
-      color: #fff;
-      border: 1px solid rgba(255,255,255,.22);
-    }
-
-    .card-body {
-      padding: 24px 26px 22px;
+    /* ── Options grid ───────────────────────────────────────── */
+    main {
+      flex: 1;
       display: flex;
       flex-direction: column;
-      flex: 1;
+      align-items: center;
+      padding: 56px 48px 80px;
     }
-    .card-category { margin-bottom: 12px; }
-    .card-title { font-size: 20px; margin-bottom: 10px; }
-    .card-desc {
-      font-size: 13px;
-      line-height: 1.65;
-      color: var(--gray-700);
-      flex: 0 1 auto;
+    .page-header {
+      text-align: center;
+      max-width: 560px;
+      margin-bottom: 52px;
+      animation: fadeUp .5s ease both;
+    }
+    .page-eyebrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
       margin-bottom: 14px;
     }
-    .card-outcome {
-      display: flex;
-      gap: 8px;
-      font-size: 12.5px;
-      line-height: 1.55;
-      font-weight: 600;
-      color: var(--navy);
-      background: var(--gold-dim);
-      border-left: 2px solid var(--gold);
-      border-radius: 0 6px 6px 0;
-      padding: 10px 12px;
-      margin-bottom: 16px;
-    }
-    .card-outcome-mark { color: var(--gold); font-weight: 800; flex: 0 0 auto; }
-
-    .card-meta {
-      list-style: none;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin: 0 0 20px;
-      flex: 1;
-      align-content: flex-start;
-    }
-    .card-meta li {
+    .page-eyebrow-rule { width: 28px; height: 2px; background: var(--gold); }
+    .page-eyebrow-text {
       font-size: 10px;
-      font-weight: 600;
-      letter-spacing: .04em;
-      color: var(--gray-500);
-      background: var(--off-white);
-      border: 1px solid var(--gray-100);
-      border-radius: 999px;
-      padding: 4px 9px;
-      white-space: nowrap;
-    }
-
-    /* overflow fix: CTA never wraps or collides */
-    .card-footer {
-      padding-top: 16px;
-      gap: 12px;
-      min-width: 0;
-    }
-    .card-cta { white-space: nowrap; flex: 0 0 auto; }
-    .card-label { display: none; }
-
-    /* ── Hero rebalance ───────────────────────────────── */
-    section { max-width: 1200px; }
-    .hero-text { max-width: 760px; }
-
-    @media (prefers-reduced-motion: reduce) {
-      .card:hover .card-thumb img { transform: none; }
-    }
-
-
-    /* ── Hero: role line, sub, stat panel ─────────────── */
-    .hero { align-items: flex-start; gap: 48px; }
-    .hero-text { flex: 1 1 auto; min-width: 0; }
-    h1 { margin-bottom: 10px; }
-    .hero-role {
-      font-size: 12px;
       font-weight: 700;
-      letter-spacing: .14em;
+      letter-spacing: .18em;
       text-transform: uppercase;
+      color: var(--gold);
+    }
+    h2 {
+      font-size: clamp(22px, 3vw, 32px);
+      font-weight: 900;
+      letter-spacing: -.01em;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+    h2 .accent { color: var(--gold); }
+    .page-sub {
+      font-size: 14px;
       color: var(--gray-500);
-      margin-bottom: 16px;
+      line-height: 1.6;
     }
-    .hero-sub {
-      font-size: 14.5px;
-      line-height: 1.65;
-      color: var(--gray-700);
-      max-width: 56ch;
-      margin-bottom: 26px;
+    .options {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      width: 100%;
+      max-width: 780px;
     }
-
-    .hero-stats {
-      flex: 0 0 244px;
-      align-self: stretch;
-      border-left: 1px solid var(--gray-100);
-      padding-left: 28px;
+    .option-card {
+      position: relative;
+      background: var(--white);
+      border: 1px solid var(--gray-100);
+      border-radius: var(--r);
+      padding: 36px 32px 32px;
+      text-decoration: none;
+      color: inherit;
+      box-shadow: var(--shadow-md);
+      transition: transform .25s, box-shadow .25s, border-color .25s;
+      display: flex;
+      flex-direction: column;
+      animation: fadeUp .5s ease both;
+    }
+    .option-card:nth-child(2) { animation-delay: .08s; }
+    .option-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      border-radius: var(--r) var(--r) 0 0;
+      background: linear-gradient(90deg, var(--navy), var(--gold));
       opacity: 0;
-      animation: fadeUp .7s ease forwards .4s;
+      transition: opacity .25s;
     }
-    .hero-stats-head {
+    .option-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); border-color: var(--gold-border); }
+    .option-card:hover::before { opacity: 1; }
+    .card-type {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
       font-size: 10px;
       font-weight: 700;
-      letter-spacing: .22em;
+      letter-spacing: .15em;
       text-transform: uppercase;
       color: var(--gold);
       margin-bottom: 18px;
     }
-    .hero-stats ul { list-style: none; display: grid; gap: 16px; }
-    .hero-stats li { display: grid; gap: 1px; }
-    .stat-val {
-      font-size: 24px;
-      font-weight: 900;
+    .pulse {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--gold);
+      position: relative;
+    }
+    .pulse::after {
+      content: '';
+      position: absolute;
+      inset: -3px;
+      border-radius: 50%;
+      border: 1px solid var(--gold);
+      opacity: .4;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    .card-title {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -.01em;
       color: var(--navy);
-      letter-spacing: -.02em;
-      line-height: 1.1;
+      margin-bottom: 10px;
     }
-    .stat-label {
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--gray-700);
-      line-height: 1.35;
-    }
-    .stat-note {
-      font-size: 10.5px;
-      font-weight: 500;
+    .card-desc {
+      font-size: 13px;
+      line-height: 1.65;
       color: var(--gray-500);
-      line-height: 1.45;
+      flex: 1;
+      margin-bottom: 28px;
     }
-
-    @media (max-width: 1080px) {
-      .hero { flex-wrap: wrap; }
-      .hero-stats {
-        flex: 1 1 100%;
-        border-left: 0;
-        border-top: 1px solid var(--gray-100);
-        padding-left: 0;
-        padding-top: 24px;
-        margin-top: 8px;
-      }
-      .hero-stats ul { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; }
+    .card-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 24px; }
+    .card-tag {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .10em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 4px;
     }
+    .ct-navy { background: rgba(15,31,75,.07); color: var(--navy-mid); }
+    .ct-gold { background: var(--gold-dim); color: var(--gold); border: 1px solid var(--gold-border); }
+    .card-cta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .10em;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-top: auto;
+    }
+    .cta-arrow { font-size: 14px; transition: transform .2s; }
+    .option-card:hover .cta-arrow { transform: translateX(4px); }
 
+    @media (max-width: 640px) {
+      nav { padding: 14px 24px; }
+      .hero { flex-direction: column; align-items: flex-start; gap: 28px; padding: 40px 24px 36px; }
+      .photo { width: 100%; height: 200px; }
+      main { padding: 40px 24px 64px; }
+      .options { grid-template-columns: 1fr; }
+      footer { padding: 20px 24px; }
+    }
   </style>
 </head>
 <body>
@@ -789,7 +349,9 @@
     <div class="breadcrumb">
       <a class="bc-link" href="https://jerelproductmanager.github.io/">Jerel Smith</a>
       <span class="bc-sep">›</span>
-      <span class="bc-current">PM Portfolio</span>
+      <a class="bc-link" href="https://jerelproductmanager.github.io/">PM Portfolio</a>
+      <span class="bc-sep">›</span>
+      <span class="bc-current">B2B Hub</span>
     </div>
   </nav>
 
@@ -802,306 +364,55 @@
         <div class="eyebrow-rule"></div>
         <span class="eyebrow-text">Product Portfolio</span>
       </div>
-      <h1>Jerel Smith<br><span class="accent">Senior Product Manager</span></h1>
-      <p class="hero-role">B2B &amp; Used &middot; B&amp;H Photo Video</p>
-      <p class="hero-sub">Ten years turning e-commerce friction into measurable revenue &mdash; across search, B2B portals, and marketplaces doing hundreds of millions in annual transactions. Below are the working prototypes behind that.</p>
+      <h1>B2B Hub<br><span class="accent">Enterprise Platform</span><br>Prototype &amp; Brief</h1>
+      <p class="hero-sub">A sign-up-centered B2B experience with role-based views, versioned live config, and a stakeholder-controlled CMS &mdash; plus the PMO-5000 brief behind it.</p>
       <div class="tags">
-        <a class="tag tag-navy" href="https://jerelproductmanager.github.io/b2b/">Enterprise Platforms · B2B</a>
-        <a class="tag tag-navy" href="https://jerelproductmanager.github.io/used/">Used Web Liaison</a>
-        <a class="tag tag-gold" href="https://jerelproductmanager.github.io/search-and-navigation/search-nav.html">E-Commerce Search &amp; Navigation</a>
+        <span class="tag tag-navy">Enterprise Platforms · B2B</span>
+        <span class="tag tag-navy">Used Web Liaison</span>
+        <span class="tag tag-gold">E-Commerce Search &amp; Navigation</span>
       </div>
-    </div>
-
-    <div class="hero-stats">
-      <div class="hero-stats-head">Shipped Impact</div>
-      <ul><li>
-          <span class="stat-val">+5.2%</span>
-          <span class="stat-label">Accessory attachment rate</span>
-          <span class="stat-note">My Camera finder &middot; +$38 AOV</span>
-        </li><li>
-          <span class="stat-val">+3.7%</span>
-          <span class="stat-label">Conversion lift</span>
-          <span class="stat-note">Sort logic &amp; zero-result reduction</span>
-        </li><li>
-          <span class="stat-val">+4.3%</span>
-          <span class="stat-label">Kit sales</span>
-          <span class="stat-note">Interactive Kit PDP redesign</span>
-        </li><li>
-          <span class="stat-val">+18%</span>
-          <span class="stat-label">A/B test velocity YoY</span>
-          <span class="stat-note">30-day product health framework</span>
-        </li></ul>
     </div>
   </div>
 
-  <section class="sec-roadmap">
-    <div class="section-header">
-      <h2>Product Roadmap</h2>
-      <div class="section-rule"></div>
-      <button class="roadmap-toggle-btn" id="roadmapBtn" onclick="toggleRoadmap()">
-        View Roadmap <span class="chevron">▲</span>
-      </button>
-    </div>
-
-    <div class="roadmap-table-wrap" id="roadmapSection">
-      <div class="view-switch">
-        <button class="vbtn active" data-view="timeline" onclick="switchRoadmapView('timeline', this)">Timeline</button>
-        <button class="vbtn" data-view="kanban" onclick="switchRoadmapView('kanban', this)">Kanban</button>
-        <button class="vbtn" data-view="portfolio" onclick="switchRoadmapView('portfolio', this)">Portfolio</button>
+  <main>
+    <div class="page-header">
+      <div class="page-eyebrow">
+        <div class="page-eyebrow-rule"></div>
+        <span class="page-eyebrow-text">B2B · Enterprise</span>
+        <div class="page-eyebrow-rule"></div>
       </div>
-
-      <div class="rm-view active" id="rmv-timeline"><div class="gantt" id="gantt"></div></div>
-      <div class="rm-view" id="rmv-kanban"><div class="kanban" id="kanban"></div></div>
-      <div class="rm-view" id="rmv-portfolio"><div class="lanes" id="lanes"></div></div>
-    </div>
-  </section>
-
-  <section class="sec-demos">
-    <div class="section-header">
-      <h2>Live Demos</h2>
-      <div class="section-rule"></div>
+      <h2>B2B Hub<br><span class="accent">Choose Your View</span></h2>
+      <p class="page-sub">Explore the interactive prototype or dive into the product thinking behind it.</p>
     </div>
 
-    <div class="cards">
+    <div class="options">
 
-      <a class="card" href="https://jerelproductmanager.github.io/used/">
-        <div class="card-thumb">
-          <img src="thumbs/used.webp" alt="B&H Used prototype screen" loading="lazy" width="800" height="500">
-          <span class="card-status card-status--dev">In Development</span>
+      <a class="option-card" href="https://jerelproductmanager.github.io/b2b-hub/">
+        <div class="card-type"><span class="pulse"></span> Interactive</div>
+        <h3 class="card-title">Live Prototype</h3>
+        <p class="card-desc">Experience the full B2B Hub demo — dealer-to-dealer and fleet procurement workflows with inventory discovery, pricing negotiation, and order management.</p>
+        <div class="card-tags">
+          <span class="card-tag ct-navy">Clickable Demo</span>
+          <span class="card-tag ct-navy">Full Workflow</span>
+          <span class="card-tag ct-gold">Live</span>
         </div>
-        <div class="card-body">
-          <div class="card-category"><span class="pulse"></span>Used · Consumer</div>
-          <h3 class="card-title">B&amp;H Used</h3>
-          <p class="card-desc">A $100M business with an underserved web footprint &mdash; outdated stack, disjointed experience, no photos of the actual item, and separate condition scales for buying and selling.</p>
-          
-          <ul class="card-meta"><li>Foundational research</li><li>Unified condition scale</li><li>Seller flow</li><li>Funnel dashboards</li></ul>
-          <div class="card-footer">
-            <span class="card-cta">View Demo <span class="arrow">&rarr;</span></span>
-          </div>
-        </div>
+        <div class="card-cta">Launch Prototype <span class="cta-arrow">→</span></div>
       </a>
 
-      <a class="card" href="https://jerelproductmanager.github.io/the-studio-bnh/">
-        <div class="card-thumb">
-          <img src="thumbs/studio.webp" alt="The Studio B&H prototype screen" loading="lazy" width="800" height="500">
-          <span class="card-status card-status--design">In Design</span>
+      <a class="option-card" href="https://jerelproductmanager.github.io/b2b-hub/project-brief/">
+        <div class="card-type"><span class="pulse"></span> Documentation</div>
+        <h3 class="card-title">Project Brief</h3>
+        <p class="card-desc">Read the product thinking — the problem space, strategic rationale, user research, and design decisions that shaped the B2B Hub experience.</p>
+        <div class="card-tags">
+          <span class="card-tag ct-navy">Strategy</span>
+          <span class="card-tag ct-navy">Research</span>
+          <span class="card-tag ct-gold">PM Artifact</span>
         </div>
-        <div class="card-body">
-          <div class="card-category"><span class="pulse"></span>Studio · Creative</div>
-          <h3 class="card-title">The Studio B&amp;H</h3>
-          <p class="card-desc">High-end consultative services delivered by staff with 15+ years of experience &mdash; and the target customers had no idea they existed.</p>
-          <p class="card-outcome"><span class="card-outcome-mark">&rarr;</span>A full stand-alone site on par with direct competitors AbelCine, CVP, and Key Code Media.</p>
-          <ul class="card-meta"><li>3 directions</li><li>Category framework</li><li>Stakeholder deck</li></ul>
-          <div class="card-footer">
-            <span class="card-cta">View Demo <span class="arrow">&rarr;</span></span>
-          </div>
-        </div>
-      </a>
-
-      <a class="card" href="https://jerelproductmanager.github.io/search-and-navigation/search-nav.html">
-        <div class="card-thumb">
-          <img src="thumbs/search-nav.webp" alt="Search & Navigation prototype screen" loading="lazy" width="800" height="500">
-          <span class="card-status card-status--dev">In Development</span>
-        </div>
-        <div class="card-body">
-          <div class="card-category"><span class="pulse"></span>Search · Navigation</div>
-          <h3 class="card-title">Search &amp; Navigation</h3>
-          <p class="card-desc">Category depth was unreachable from the nav. Customers browsed through several pages of links to find what they came for.</p>
-          
-          <ul class="card-meta"><li>Mega-menu prototype</li><li>Merch tool</li><li>Exec deck</li><li>A/B impact dashboard</li></ul>
-          <div class="card-footer">
-            <span class="card-cta">View Demo <span class="arrow">&rarr;</span></span>
-          </div>
-        </div>
-      </a>
-
-      <a class="card" href="https://jerelproductmanager.github.io/b2b/">
-        <div class="card-thumb">
-          <img src="thumbs/b2b-hub.webp" alt="B2B Hub prototype screen" loading="lazy" width="800" height="500">
-          <span class="card-status card-status--dev">In Development</span>
-        </div>
-        <div class="card-body">
-          <div class="card-category"><span class="pulse"></span>B2B · Enterprise</div>
-          <h3 class="card-title">B2B Hub</h3>
-          <p class="card-desc">Forcing prospects to identify their industry before sign-up created redundant work and funnel leakage. Meanwhile, hub update requests sat in the backlog for months.</p>
-          <p class="card-outcome"><span class="card-outcome-mark">&rarr;</span>A sign-up-centered experience paired with a CMS that B2B stakeholders control.</p>
-          <ul class="card-meta"><li>PMO-5000 brief</li><li>GA4 spec</li><li>Portal routing</li><li>Role-based views</li></ul>
-          <div class="card-footer">
-            <span class="card-cta">View Demo <span class="arrow">&rarr;</span></span>
-          </div>
-        </div>
-      </a>
-
-      <a class="card" href="https://jerelproductmanager.github.io/b2b-plus/">
-        <div class="card-thumb">
-          <img src="thumbs/k12-safety.webp" alt="K-12 Safety prototype screen" loading="lazy" width="800" height="500">
-          <span class="card-status card-status--dev">In Development</span>
-        </div>
-        <div class="card-body">
-          <div class="card-category"><span class="pulse"></span>B2B · K-12 Safety</div>
-          <h3 class="card-title">K-12 Safety</h3>
-          <p class="card-desc">No central place for districts to learn the five pillars &mdash; physical security, emergency comms, video surveillance, cybersecurity, student wellness &mdash; or the compliance rules behind them.</p>
-          <p class="card-outcome"><span class="card-outcome-mark">&rarr;</span>A one-stop shop for school safety officers: solutions, products, and state compliance.</p>
-          <ul class="card-meta"><li>Low-fi &rarr; hi-fi progression</li><li>Interactive campus map</li><li>5-pillar framework</li></ul>
-          <div class="card-footer">
-            <span class="card-cta">View Demo <span class="arrow">&rarr;</span></span>
-          </div>
-        </div>
-      </a>
-
-      <a class="card" href="https://jerelproductmanager.github.io/b2b-edu/">
-        <div class="card-thumb">
-          <img src="thumbs/b2b-edu.webp" alt="B2B EDU prototype screen" loading="lazy" width="800" height="500">
-          <span class="card-status card-status--dev">In Development</span>
-        </div>
-        <div class="card-body">
-          <div class="card-category"><span class="pulse"></span>B2B · Education</div>
-          <h3 class="card-title">B2B EDU</h3>
-          <p class="card-desc">An outdated, uninformative landing page for higher-ed administrators sourcing supplies and equipment for their institutions.</p>
-          <p class="card-outcome"><span class="card-outcome-mark">&rarr;</span>A modern, responsive experience that is visually appealing and actually informative.</p>
-          <ul class="card-meta"><li>Clickable prototype</li><li>UNiDAYS verification</li><li>Static mockup</li></ul>
-          <div class="card-footer">
-            <span class="card-cta">View Demo <span class="arrow">&rarr;</span></span>
-          </div>
-        </div>
+        <div class="card-cta">Read the Brief <span class="cta-arrow">→</span></div>
       </a>
 
     </div>
-  </section>
-
-  <script>
-    function toggleRoadmap() {
-      const btn = document.getElementById('roadmapBtn');
-      const wrap = document.getElementById('roadmapSection');
-      const isOpen = wrap.classList.contains('visible');
-      wrap.classList.toggle('visible', !isOpen);
-      btn.classList.toggle('open', !isOpen);
-      btn.querySelector('.chevron').textContent = isOpen ? '▲' : '▼';
-      const label = isOpen ? 'View Roadmap ' : 'Hide Roadmap ';
-      btn.childNodes[0].textContent = label;
-    }
-
-    /* ── Roadmap views (Timeline / Kanban / Portfolio) ── */
-    function switchRoadmapView(view, btn) {
-      document.querySelectorAll('.rm-view').forEach(v => v.classList.remove('active'));
-      document.getElementById('rmv-' + view).classList.add('active');
-      document.querySelectorAll('.view-switch .vbtn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-    }
-
-    const RM_DATA = [
-      {t:"Post Hub",              s:"0. Discovery",      p:"B2B",             comp:"B2B Hub",              start:"Oct", end:"Jan"},
-      {t:"School Safety Landing Page", s:"2. Design",    p:"B2B",             comp:"B2B Hub Plus",         start:"Sep", end:"Sep"},
-      {t:"Sell Used",             s:"2B. Research",      p:"Used Operations", comp:"Cart",                 start:"Sep", end:"Jan"},
-      {t:"New Condition Rating Scale", s:"3. Architecture", p:"Used Operations", comp:"PLP/PDP",         start:"Aug", end:"Aug"},
-      {t:"Mega Menu",             s:"3. Architecture",   p:"Merchandising",   comp:"Navigation",           start:"Aug", end:"Oct"},
-      {t:"Nested Refinements",    s:"4. Dev",            p:"Web Experience",  comp:"PLP/Search",           start:"Sep", end:"Nov"},
-      {t:"EDU Homepage",          s:"4. Dev",            p:"B2B",             comp:"EDU",                  start:"Aug", end:"Aug"},
-      {t:"Group by Condition",    s:"4. Dev",            p:"Used Operations", comp:"PLP/PDP",              start:"Jun", end:"Jul"},
-      {t:"My Gear Release 2",     s:"4. Dev",            p:"Web Experience",  comp:"My Gear",              start:null,  end:null},
-      {t:"Highlighted Refinements", s:"4. Dev",          p:"Merchandising",   comp:"PLP/Search",           start:"May", end:"Jul"},
-      {t:"B2B Hub",               s:"4. Dev",            p:"B2B",             comp:"B2B Hub",              start:null,  end:null},
-      {t:"Actual Used Images",    s:"5. Implementation", p:"Used Operations", comp:"PDP / Images",         start:"Mar", end:"Jun"},
-      {t:"Sunset Deal Zone",      s:"7. Live",           p:"Web Experience",  comp:"Navigation",           start:"Jun", end:"Aug"},
-      {t:"View All Category Landing Page", s:"7. Live",  p:"Web Experience",  comp:"Category Landing Page",start:null,  end:"Jul"},
-      {t:"Roll Up SKUs",          s:"99. Parking Lot",   p:"Web Experience",  comp:"PLP/Search",           start:null,  end:null},
-      {t:"B2B The Studio Categories", s:"99. Parking Lot", p:"B2B",           comp:"B2B Hub",              start:null,  end:null},
-    ];
-    const RM_STAGES = [
-      {key:"0. Discovery",      short:"Discovery",      cls:"badge-discovery", color:"#7B82A0"},
-      {key:"2. Design",         short:"Design",         cls:"badge-design",    color:"#1A5CA8"},
-      {key:"2B. Research",      short:"Research",        cls:"badge-research",  color:"#0E7C86"},
-      {key:"3. Architecture",   short:"Architecture",   cls:"badge-arch",      color:"#B87A00"},
-      {key:"4. Dev",            short:"Dev",            cls:"badge-dev",       color:"#1A7A38"},
-      {key:"5. Implementation", short:"Implementation", cls:"badge-impl",      color:"#6B00B8"},
-      {key:"7. Live",           short:"Live",           cls:"badge-live",      color:"#C8993A"},
-      {key:"99. Parking Lot",   short:"Parking Lot",    cls:"badge-parking",   color:"#B4B4B4"},
-    ];
-    const RM_PORT = {
-      "B2B":             {cls:"chip-b2b",   color:"#C8993A"},
-      "Used Operations": {cls:"chip-used",  color:"#C45000"},
-      "Web Experience":  {cls:"chip-web",   color:"#B80000"},
-      "Merchandising":   {cls:"chip-merch", color:"#8B008B"},
-    };
-    const RM_PORT_ORDER = ["B2B","Used Operations","Web Experience","Merchandising"];
-    const rmStage = k => RM_STAGES.find(x => x.key === k);
-    const rmBadge = s => { const m = rmStage(s); return '<span class="badge ' + m.cls + '">' + s + '</span>'; };
-    const rmChip  = p => '<span class="chip ' + RM_PORT[p].cls + '">' + p + '</span>';
-
-    /* Kanban */
-    (function() {
-      const wrap = document.getElementById('kanban');
-      if (!wrap) return;
-      RM_STAGES.forEach(st => {
-        const items = RM_DATA.filter(d => d.s === st.key);
-        const col = document.createElement('div');
-        col.className = 'kcol';
-        col.innerHTML = '<div class="kcol-head"><span class="badge ' + st.cls + '">' + st.short + '</span><span class="count">' + items.length + '</span></div>';
-        items.forEach(d => {
-          const sprint = (d.start || d.end) ? ((d.start || '—') + ' → ' + (d.end || '—')) : 'Undated';
-          const card = document.createElement('div');
-          card.className = 'kcard';
-          card.style.borderLeftColor = RM_PORT[d.p].color;
-          card.innerHTML = '<div class="kt">' + d.t + '</div><div class="kmeta">' + rmChip(d.p) + '<span class="ksprint">' + sprint + '</span></div>';
-          col.appendChild(card);
-        });
-        if (!items.length) col.innerHTML += '<div class="kempty">—</div>';
-        wrap.appendChild(col);
-      });
-    })();
-
-    /* Gantt */
-    (function() {
-      const wrap = document.getElementById('gantt');
-      if (!wrap) return;
-      const AXIS = ["Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec","Jan"]; // Mar'26 → Jan'27
-      const NOW = "Jul";
-      const idx = m => AXIS.indexOf(m);
-      const effStart = d => d.start ? idx(d.start) : idx(d.end);
-      const effEnd   = d => d.end ? idx(d.end) : idx(d.start);
-      const scheduled = RM_DATA.filter(d => d.start || d.end)
-        .sort((a, b) => effStart(a) - effStart(b) || effEnd(a) - effEnd(b));
-      const unscheduled = RM_DATA.filter(d => !d.start && !d.end);
-      let html = '<div class="gantt-grid"><div></div><div class="g-axis">' +
-        AXIS.map(m => '<div class="m ' + (m === NOW ? 'now' : '') + '">' + m + '</div>').join('') + '</div>';
-      scheduled.forEach(d => {
-        const meta = RM_PORT[d.p];
-        let s = d.start ? idx(d.start) : idx(d.end);
-        let e = d.end ? idx(d.end) : idx(d.start);
-        if (s < 0) s = 0;
-        if (e < 0) e = AXIS.length - 1;
-        const leftPct = (s / AXIS.length) * 100;
-        const widthPct = ((e - s + 1) / AXIS.length) * 100;
-        const cells = AXIS.map(m => '<span class="' + (m === NOW ? 'now' : '') + '"></span>').join('');
-        const label = (d.start && d.end && d.start !== d.end) ? (d.start + ' – ' + d.end) : (d.end || d.start);
-        html += '<div class="g-row"><div class="g-label"><span class="dot" style="background:' + meta.color + '"></span>' + d.t + '</div>' +
-          '<div class="g-track"><div class="cells">' + cells + '</div>' +
-          '<div class="g-bar" style="left:' + leftPct + '%;width:' + widthPct + '%;background:' + meta.color + '">' + label + '</div></div></div>';
-      });
-      html += '</div>';
-      if (unscheduled.length) {
-        html += '<div class="g-unscheduled"><span class="lbl">Undated backlog</span>' +
-          unscheduled.map(d => '<span class="u-item"><span class="dot" style="background:' + RM_PORT[d.p].color + '"></span>' + d.t + '</span>').join('') + '</div>';
-      }
-      wrap.innerHTML = html;
-    })();
-
-    /* Swimlanes */
-    (function() {
-      const wrap = document.getElementById('lanes');
-      if (!wrap) return;
-      RM_PORT_ORDER.forEach(p => {
-        const items = RM_DATA.filter(d => d.p === p);
-        const lane = document.createElement('div');
-        lane.className = 'lane';
-        const head = '<div class="lane-head" style="border-left-color:' + RM_PORT[p].color + '"><div class="name">' + p + '</div><div class="cnt">' + items.length + ' initiative' + (items.length !== 1 ? 's' : '') + '</div></div>';
-        const body = '<div class="lane-body">' + items.map(d =>
-          '<div class="lcard" style="border-top:3px solid ' + RM_PORT[p].color + '"><div class="lt">' + d.t + '</div><div class="lmeta">' + rmBadge(d.s) + '<span class="lcomp">' + d.comp + '</span></div></div>').join('') + '</div>';
-        lane.innerHTML = head + body;
-        wrap.appendChild(lane);
-      });
-    })();
-  </script>
+  </main>
 
   <footer>
     <strong>Jerel Smith</strong> &nbsp;·&nbsp; Senior Product Manager &nbsp;·&nbsp; Enterprise B2B · Used · E-Commerce
