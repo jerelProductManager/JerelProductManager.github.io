@@ -843,7 +843,14 @@
       backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
     }
     .scard-body { padding: 18px 20px 18px; display: flex; flex-direction: column; flex: 1; }
-    .scard-title { font-size: 15.5px; font-weight: 800; color: var(--navy); line-height: 1.25; margin-bottom: 8px; }
+    .scard-title { font-size: 15.5px; font-weight: 800; color: var(--navy); line-height: 1.25; margin-bottom: 9px; }
+    .scard-stake { font-size: 12.5px; line-height: 1.6; color: var(--gray-700); margin-bottom: 11px; }
+    .scard-outcome {
+      display: flex; gap: 7px; font-size: 12px; line-height: 1.55; font-weight: 600;
+      color: var(--navy); background: var(--gold-dim); border-left: 2px solid var(--gold);
+      border-radius: 0 6px 6px 0; padding: 9px 11px; margin-bottom: 12px;
+    }
+    .scard-mark { color: var(--gold); font-weight: 800; flex: 0 0 auto; }
     .scard-where {
       font-size: 11.5px; line-height: 1.6; color: var(--gray-500);
       display: flex; gap: 7px; flex: 1; margin-bottom: 14px;
@@ -988,27 +995,63 @@
     is site-wide; the rest are refinements that surface across many listing pages &mdash; so each tile says where to
     look and opens a page where you can see it working.</p>
     <div class="shipped-grid">
-      <a class="scard" href="https://www.bhphotovideo.com/c/buy/Digital-Cameras/ci/9811/N/4288586282" target="_blank" rel="noopener">
+      <a class="scard" href="https://www.bhphotovideo.com/deals-promotions-coupons" target="_blank" rel="noopener">
         <div class="scard-thumb">
-          <img src="thumbs/ship-swatches.webp" alt="Color Swatches on bhphotovideo.com" loading="lazy" width="800" height="500">
-          <span class="scard-live">Live</span>
+          <img src="thumbs/ship-dealzone.webp" alt="Specials & Sunset Deal Zone on bhphotovideo.com" loading="lazy" width="800" height="500">
+          <span class="scard-live">Shipped 2023</span>
         </div>
         <div class="scard-body">
-          <h3 class="scard-title">Color Swatches</h3>
-          <p class="scard-where"><span class="scard-pin">&#9679;</span>Left rail &rarr; Color &rarr; See all</p>
+          <h3 class="scard-title">Specials &amp; Sunset Deal Zone</h3>
+          <p class="scard-stake">Coupon and specials pages competed against each other in search, and customers had no single place to find savings.</p>
+          <p class="scard-outcome"><span class="scard-mark">&rarr;</span>One destination for deals &mdash; for customers, marketing, and the buying team alike.</p>
+          <p class="scard-where"><span class="scard-pin">&#9679;</span>Deal Zone &mdash; new savings every day</p>
           <div class="scard-foot">
-            <span class="scard-surface">Listing pages</span>
-            <span class="scard-cta">Digital Cameras <span class="arrow">&rarr;</span></span>
+            <span class="scard-surface">Own page</span>
+            <span class="scard-cta">Deals &amp; Promotions <span class="arrow">&rarr;</span></span>
+          </div>
+        </div>
+      </a>
+      <a class="scard" href="https://www.bhphotovideo.com/c/browse/Used-Equipment/ci/2870/N/4294247188" target="_blank" rel="noopener">
+        <div class="scard-thumb">
+          <img src="thumbs/ship-usedhub.webp" alt="Used Hub on bhphotovideo.com" loading="lazy" width="800" height="500">
+          <span class="scard-live">Shipped 2025</span>
+        </div>
+        <div class="scard-body">
+          <h3 class="scard-title">Used Hub</h3>
+          <p class="scard-stake">A category page with twelve links, no trust signals, and nothing to guide a first-time used buyer.</p>
+          <p class="scard-outcome"><span class="scard-mark">&rarr;</span>A hub that matches the competition and gives buy- and sell-used customers a reason to trust it.</p>
+          <p class="scard-where"><span class="scard-pin">&#9679;</span>Buy Used &middot; Sell Used &middot; FAQs &middot; Museum</p>
+          <div class="scard-foot">
+            <span class="scard-surface">Own page</span>
+            <span class="scard-cta">Used Equipment <span class="arrow">&rarr;</span></span>
+          </div>
+        </div>
+      </a>
+      <a class="scard" href="https://www.bhphotovideo.com/" target="_blank" rel="noopener">
+        <div class="scard-thumb">
+          <img src="thumbs/ship-experts.webp" alt="Experts in the Header on bhphotovideo.com" loading="lazy" width="800" height="500">
+          <span class="scard-live">Shipped 2024</span>
+        </div>
+        <div class="scard-body">
+          <h3 class="scard-title">Experts in the Header</h3>
+          <p class="scard-stake">B&amp;H&rsquo;s differentiator is its experts &mdash; but reaching one meant scrolling to the footer or searching for it.</p>
+          <p class="scard-outcome"><span class="scard-mark">&rarr;</span>A specialist one click away, from any page, on every page.</p>
+          <p class="scard-where"><span class="scard-pin">&#9679;</span>Ask Our Experts &rarr; chat, video, callback</p>
+          <div class="scard-foot">
+            <span class="scard-surface">Site-wide</span>
+            <span class="scard-cta">Every page <span class="arrow">&rarr;</span></span>
           </div>
         </div>
       </a>
       <a class="scard" href="https://www.bhphotovideo.com/c/buy/Complete-Tripods-with-Heads/ci/2635/N/4075788742" target="_blank" rel="noopener">
         <div class="scard-thumb">
           <img src="thumbs/ship-sliders.webp" alt="Slider Refinements on bhphotovideo.com" loading="lazy" width="800" height="500">
-          <span class="scard-live">Live</span>
+          <span class="scard-live">Shipped 2026</span>
         </div>
         <div class="scard-body">
           <h3 class="scard-title">Slider Refinements</h3>
+          <p class="scard-stake">Filtering by a range meant selecting values one at a time &mdash; and some ranges run to hundreds of options.</p>
+          <p class="scard-outcome"><span class="scard-mark">&rarr;</span>Drag the min or max, release, and the results reload.</p>
           <p class="scard-where"><span class="scard-pin">&#9679;</span>Left rail &rarr; Maximum Height, Support Weight</p>
           <div class="scard-foot">
             <span class="scard-surface">Listing pages</span>
@@ -1023,6 +1066,8 @@
         </div>
         <div class="scard-body">
           <h3 class="scard-title">Select All / Deselect All</h3>
+          <p class="scard-stake">The same problem as the sliders, but for values that aren&rsquo;t consecutive.</p>
+          <p class="scard-outcome"><span class="scard-mark">&rarr;</span>One click activates or clears every value &mdash; no picking through paginated lists.</p>
           <p class="scard-where"><span class="scard-pin">&#9679;</span>Any multi-value filter &rarr; See All Options</p>
           <div class="scard-foot">
             <span class="scard-surface">Listing pages</span>
@@ -1030,45 +1075,19 @@
           </div>
         </div>
       </a>
-      <a class="scard" href="https://www.bhphotovideo.com/deals-promotions-coupons" target="_blank" rel="noopener">
+      <a class="scard" href="https://www.bhphotovideo.com/c/buy/Digital-Cameras/ci/9811/N/4288586282" target="_blank" rel="noopener">
         <div class="scard-thumb">
-          <img src="thumbs/ship-dealzone.webp" alt="Specials & Sunset Deal Zone on bhphotovideo.com" loading="lazy" width="800" height="500">
-          <span class="scard-live">Live</span>
+          <img src="thumbs/ship-swatches.webp" alt="Color Swatches on bhphotovideo.com" loading="lazy" width="800" height="500">
+          <span class="scard-live">Shipped 2024</span>
         </div>
         <div class="scard-body">
-          <h3 class="scard-title">Specials &amp; Sunset Deal Zone</h3>
-          <p class="scard-where"><span class="scard-pin">&#9679;</span>Deal Zone &mdash; new savings every day</p>
+          <h3 class="scard-title">Color Swatches</h3>
+          <p class="scard-stake">Customers couldn&rsquo;t tell at a glance which colors a product came in.</p>
+          <p class="scard-outcome"><span class="scard-mark">&rarr;</span>Swatches in the filter rail, so the range is read at a glance instead of guessed.</p>
+          <p class="scard-where"><span class="scard-pin">&#9679;</span>Left rail &rarr; Color &rarr; See all</p>
           <div class="scard-foot">
-            <span class="scard-surface">Own page</span>
-            <span class="scard-cta">Deals &amp; Promotions <span class="arrow">&rarr;</span></span>
-          </div>
-        </div>
-      </a>
-      <a class="scard" href="https://www.bhphotovideo.com/c/browse/Used-Equipment/ci/2870/N/4294247188" target="_blank" rel="noopener">
-        <div class="scard-thumb">
-          <img src="thumbs/ship-usedhub.webp" alt="Used Hub on bhphotovideo.com" loading="lazy" width="800" height="500">
-          <span class="scard-live">Live</span>
-        </div>
-        <div class="scard-body">
-          <h3 class="scard-title">Used Hub</h3>
-          <p class="scard-where"><span class="scard-pin">&#9679;</span>Buy Used &middot; Sell Used &middot; FAQs &middot; Museum</p>
-          <div class="scard-foot">
-            <span class="scard-surface">Own page</span>
-            <span class="scard-cta">Used Equipment <span class="arrow">&rarr;</span></span>
-          </div>
-        </div>
-      </a>
-      <a class="scard" href="https://www.bhphotovideo.com/" target="_blank" rel="noopener">
-        <div class="scard-thumb">
-          <img src="thumbs/ship-experts.webp" alt="Experts in the Header on bhphotovideo.com" loading="lazy" width="800" height="500">
-          <span class="scard-live">Live</span>
-        </div>
-        <div class="scard-body">
-          <h3 class="scard-title">Experts in the Header</h3>
-          <p class="scard-where"><span class="scard-pin">&#9679;</span>Ask Our Experts &rarr; chat, video, callback</p>
-          <div class="scard-foot">
-            <span class="scard-surface">Site-wide</span>
-            <span class="scard-cta">Every page <span class="arrow">&rarr;</span></span>
+            <span class="scard-surface">Listing pages</span>
+            <span class="scard-cta">Digital Cameras <span class="arrow">&rarr;</span></span>
           </div>
         </div>
       </a>
