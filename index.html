@@ -779,6 +779,51 @@
       .hero-stats ul { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; }
     }
 
+
+    /* ── Product Adoption & Impact ────────────────────── */
+    .sec-measure { padding-top: 8px; padding-bottom: 72px; }
+    .measure-lede {
+      font-size: 14.5px; line-height: 1.7; color: var(--gray-700);
+      max-width: 72ch; margin: -18px 0 30px;
+    }
+    .measure-lede strong { color: var(--navy); font-weight: 700; }
+    .measure-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .mcard {
+      display: flex; flex-direction: column;
+      background: var(--white); border: 1.5px solid var(--gray-100);
+      border-radius: var(--r); overflow: hidden; text-decoration: none; color: inherit;
+      box-shadow: var(--shadow-sm);
+      transition: border-color .22s, box-shadow .22s, transform .22s;
+    }
+    .mcard:hover { border-color: var(--gold-border); box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+    .mcard-thumb { position: relative; aspect-ratio: 16/10; overflow: hidden; background: var(--off-white); border-bottom: 1px solid var(--gray-100); }
+    .mcard-thumb img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; transition: transform .5s cubic-bezier(.2,.7,.3,1); }
+    .mcard:hover .mcard-thumb img { transform: scale(1.04); }
+    .mcard-status {
+      position: absolute; top: 12px; right: 12px; z-index: 2;
+      font-size: 9.5px; font-weight: 700; letter-spacing: .10em; text-transform: uppercase;
+      padding: 5px 10px; border-radius: 999px; color: #fff;
+      backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+      box-shadow: 0 1px 6px rgba(15,31,75,.14);
+    }
+    .mcard-status--spec { background: rgba(123,130,160,.92); border: 1px solid rgba(255,255,255,.20); }
+    .mcard-status--live { background: rgba(15,31,75,.88); border: 1px solid rgba(255,255,255,.16); }
+    .mcard-body { padding: 24px 26px 22px; display: flex; flex-direction: column; flex: 1; }
+    .mcard-kicker {
+      font-size: 10px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 10px;
+    }
+    .mcard-title { font-size: 19px; font-weight: 800; color: var(--navy); line-height: 1.2; margin-bottom: 10px; letter-spacing: -.01em; }
+    .mcard-desc { font-size: 13px; line-height: 1.65; color: var(--gray-700); margin-bottom: 16px; }
+    .mcard-desc em { color: var(--navy); font-style: italic; }
+    .mcard .card-meta { margin-bottom: 18px; }
+    @media (max-width: 1150px) { .measure-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 760px)  { .measure-grid { grid-template-columns: 1fr; } }
+    @media (prefers-reduced-motion: reduce) {
+      .mcard:hover { transform: none; }
+      .mcard:hover .mcard-thumb img { transform: none; }
+    }
+
   </style>
 </head>
 <body>
@@ -1102,6 +1147,57 @@
       });
     })();
   </script>
+
+
+  <section class="sec-measure">
+    <div class="section-header">
+      <h2>Product Adoption &amp; Impact</h2>
+      <div class="section-rule"></div>
+    </div>
+    <p class="measure-lede">Deciding what success means, and instrumenting for it before the build &mdash;
+    then reading the result and acting on it &mdash; the habit behind a <strong>30-day product health framework</strong> and <strong>+18% A/B test velocity YoY</strong>.</p>
+    <div class="measure-grid">
+      <a class="mcard" href="https://jerelproductmanager.github.io/used/tradein-program-performance.html">
+        <div class="mcard-thumb">
+          <img src="thumbs/measure-tradein.webp" alt="Trade-In — Program Performance" loading="lazy" width="800" height="500">
+          <span class="mcard-status mcard-status--spec">Illustrative data</span>
+        </div>
+        <div class="mcard-body">
+          <div class="mcard-kicker">Diagnose</div>
+          <h3 class="mcard-title">Trade-In &mdash; Program Performance</h3>
+          <p class="mcard-desc">Where the quote funnel leaks and why: 66.6% drop at search&rarr;basket (people can&rsquo;t find what they own), 60.4% at basket&rarr;submit (they hesitate before committing). Entry-path mix and per-initiative north-star tracking against baseline.</p>
+          <ul class="card-meta"><li>Funnel abandonment</li><li>Entry-path mix</li><li>Initiative impact tracking</li></ul>
+          <div class="card-footer"><span class="card-cta">View Dashboard <span class="arrow">&rarr;</span></span></div>
+        </div>
+      </a>
+      <a class="mcard" href="https://jerelproductmanager.github.io/search-and-navigation/megamenu-impact-dashboard.html">
+        <div class="mcard-thumb">
+          <img src="thumbs/measure-spec.webp" alt="Mega Menu — Impact Framework" loading="lazy" width="800" height="500">
+          <span class="mcard-status mcard-status--spec">Measurement spec</span>
+        </div>
+        <div class="mcard-body">
+          <div class="mcard-kicker">Specify</div>
+          <h3 class="mcard-title">Mega Menu &mdash; Impact Framework</h3>
+          <p class="mcard-desc">The data contract behind the dashboard: required dimensions, metric&rarr;source mapping, and the grain each fact has to be captured at. <em>Impressions must be per-slot, not aggregated</em> &mdash; one aggregate number hides which positions actually get seen.</p>
+          <ul class="card-meta"><li>A/B design</li><li>Position-normalized CTR</li><li>Instrumentation grain</li></ul>
+          <div class="card-footer"><span class="card-cta">View Dashboard <span class="arrow">&rarr;</span></span></div>
+        </div>
+      </a>
+      <a class="mcard" href="https://jerelproductmanager.github.io/used/sell_used_design_validation.html">
+        <div class="mcard-thumb">
+          <img src="thumbs/measure-validation.webp" alt="Sell Used — Design Validation" loading="lazy" width="800" height="500">
+          <span class="mcard-status mcard-status--live">Live session data</span>
+        </div>
+        <div class="mcard-body">
+          <div class="mcard-kicker">Validate</div>
+          <h3 class="mcard-title">Sell Used &mdash; Design Validation</h3>
+          <p class="mcard-desc">An instrumented prototype and the dashboard that reads it. 29 usability sessions, 12,250 events: conversion funnel, friction by step, dead-click targets, and time-on-task &mdash; computed from the raw event log, not hand-tallied.</p>
+          <ul class="card-meta"><li>29 sessions</li><li>12,250 events</li><li>Funnel &amp; friction</li><li>Dead-click targets</li></ul>
+          <div class="card-footer"><span class="card-cta">View Dashboard <span class="arrow">&rarr;</span></span></div>
+        </div>
+      </a>
+    </div>
+  </section>
 
   <footer>
     <strong>Jerel Smith</strong> &nbsp;·&nbsp; Senior Product Manager &nbsp;·&nbsp; Enterprise B2B · Used · E-Commerce
