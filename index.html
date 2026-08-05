@@ -825,6 +825,40 @@
     }
 
 
+    /* ── Shipped ──────────────────────────────────────── */
+    .sec-shipped { padding-top: 8px; padding-bottom: 8px; }
+    .shipped-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .scard {
+      margin: 0; background: var(--white); border: 1.5px solid var(--gray-100);
+      border-radius: var(--r); overflow: hidden; box-shadow: var(--shadow-sm);
+      display: flex; flex-direction: column;
+    }
+    .scard-thumb { position: relative; aspect-ratio: 16/10; overflow: hidden; background: var(--off-white); border-bottom: 1px solid var(--gray-100); }
+    .scard-thumb img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
+    .scard-live {
+      position: absolute; top: 11px; right: 11px; z-index: 2;
+      font-size: 9.5px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+      color: #fff; background: rgba(26,122,56,.92);
+      border: 1px solid rgba(255,255,255,.20); border-radius: 999px; padding: 4px 10px;
+      backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    }
+    .scard-body { padding: 18px 20px 18px; display: flex; flex-direction: column; flex: 1; }
+    .scard-title { font-size: 15.5px; font-weight: 800; color: var(--navy); line-height: 1.25; margin-bottom: 8px; }
+    .scard-where {
+      font-size: 11.5px; line-height: 1.6; color: var(--gray-500);
+      display: flex; gap: 7px; flex: 1; margin-bottom: 12px;
+    }
+    .scard-pin { color: var(--gold); font-size: 8px; line-height: 1.9; flex: 0 0 auto; }
+    .scard-surface {
+      align-self: flex-start; font-size: 9.5px; font-weight: 700; letter-spacing: .10em;
+      text-transform: uppercase; color: var(--gray-500);
+      background: var(--off-white); border: 1px solid var(--gray-100);
+      border-radius: 999px; padding: 4px 10px;
+    }
+    @media (max-width: 1000px) { .shipped-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 680px)  { .shipped-grid { grid-template-columns: 1fr; } }
+
+
     /* ── Roadmap: legend + kanban scroll affordance ───── */
     .rm-legend {
       display: flex; align-items: center; flex-wrap: wrap; gap: 8px 18px;
@@ -929,6 +963,84 @@
   </div>
 
   
+
+
+  <section class="sec-shipped">
+    <div class="section-header">
+      <h2>Shipped</h2>
+      <div class="section-rule"></div>
+    </div>
+    <p class="measure-lede">Live on <strong>bhphotovideo.com</strong> today. Each one is an element on a page
+    rather than a page of its own &mdash; the locator says where to look.</p>
+    <div class="shipped-grid">
+      <figure class="scard">
+        <div class="scard-thumb">
+          <img src="thumbs/ship-swatches.webp" alt="Color Swatches on bhphotovideo.com" loading="lazy" width="800" height="500">
+          <span class="scard-live">Live</span>
+        </div>
+        <figcaption class="scard-body">
+          <h3 class="scard-title">Color Swatches</h3>
+          <p class="scard-where"><span class="scard-pin">&#9679;</span>Any category PLP &rarr; left rail &rarr; Color &rarr; See all</p>
+          <span class="scard-surface">PLP / Search</span>
+        </figcaption>
+      </figure>
+      <figure class="scard">
+        <div class="scard-thumb">
+          <img src="thumbs/ship-sliders.webp" alt="Slider Refinements on bhphotovideo.com" loading="lazy" width="800" height="500">
+          <span class="scard-live">Live</span>
+        </div>
+        <figcaption class="scard-body">
+          <h3 class="scard-title">Slider Refinements</h3>
+          <p class="scard-where"><span class="scard-pin">&#9679;</span>Tripods PLP &rarr; left rail &rarr; Maximum Height, Support Weight</p>
+          <span class="scard-surface">PLP / Search</span>
+        </figcaption>
+      </figure>
+      <figure class="scard">
+        <div class="scard-thumb">
+          <img src="thumbs/ship-selectall.webp" alt="Select All / Deselect All on bhphotovideo.com" loading="lazy" width="800" height="500">
+          <span class="scard-live">Live</span>
+        </div>
+        <figcaption class="scard-body">
+          <h3 class="scard-title">Select All / Deselect All</h3>
+          <p class="scard-where"><span class="scard-pin">&#9679;</span>Any multi-value filter &rarr; See All Options &rarr; Select All</p>
+          <span class="scard-surface">PLP / Search</span>
+        </figcaption>
+      </figure>
+      <figure class="scard">
+        <div class="scard-thumb">
+          <img src="thumbs/ship-dealzone.webp" alt="Specials & Sunset Deal Zone on bhphotovideo.com" loading="lazy" width="800" height="500">
+          <span class="scard-live">Live</span>
+        </div>
+        <figcaption class="scard-body">
+          <h3 class="scard-title">Specials &amp; Sunset Deal Zone</h3>
+          <p class="scard-where"><span class="scard-pin">&#9679;</span>Specials &rarr; Deal Zone</p>
+          <span class="scard-surface">Navigation</span>
+        </figcaption>
+      </figure>
+      <figure class="scard">
+        <div class="scard-thumb">
+          <img src="thumbs/ship-experts.webp" alt="Experts in the Header on bhphotovideo.com" loading="lazy" width="800" height="500">
+          <span class="scard-live">Live</span>
+        </div>
+        <figcaption class="scard-body">
+          <h3 class="scard-title">Experts in the Header</h3>
+          <p class="scard-where"><span class="scard-pin">&#9679;</span>Site header &rarr; Ask Our Experts</p>
+          <span class="scard-surface">Global header</span>
+        </figcaption>
+      </figure>
+      <figure class="scard">
+        <div class="scard-thumb">
+          <img src="thumbs/ship-usedhub.webp" alt="Used Hub on bhphotovideo.com" loading="lazy" width="800" height="500">
+          <span class="scard-live">Live</span>
+        </div>
+        <figcaption class="scard-body">
+          <h3 class="scard-title">Used Hub</h3>
+          <p class="scard-where"><span class="scard-pin">&#9679;</span>Used &rarr; B&amp;H Used Department</p>
+          <span class="scard-surface">Used</span>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
 
   <section class="sec-demos">
     <div class="section-header">
