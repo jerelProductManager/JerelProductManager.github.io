@@ -588,197 +588,6 @@
     .lcard .lmeta { display:flex; gap:6px; align-items:center; flex-wrap:wrap; }
     .lcard .lcomp { font-size:10px; color:var(--gray-500); font-weight:600; margin-left:auto; }
     @media (max-width:820px) { .lane { grid-template-columns:1fr; } }
-
-    /* ── Card thumbnail + content (rebuilt) ───────────── */
-    .card { padding: 0; }
-    .card-thumb {
-      position: relative;
-      aspect-ratio: 16 / 10;
-      overflow: hidden;
-      background: var(--off-white);
-      border-bottom: 1px solid var(--gray-100);
-    }
-    .card-thumb img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      object-position: top center;
-      display: block;
-      transition: transform .5s cubic-bezier(.2,.7,.3,1);
-    }
-    .card:hover .card-thumb img { transform: scale(1.04); }
-    .card-thumb::after {
-      content: '';
-      position: absolute; inset: 0;
-      background: linear-gradient(180deg, rgba(15,31,75,0) 55%, rgba(15,31,75,.10) 100%);
-      pointer-events: none;
-    }
-
-    /* Status chip on the thumbnail */
-    .card-status {
-      position: absolute;
-      top: 12px; right: 12px;
-      z-index: 2;
-      font-size: 9.5px;
-      font-weight: 700;
-      letter-spacing: .10em;
-      text-transform: uppercase;
-      padding: 5px 10px;
-      border-radius: 999px;
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      box-shadow: 0 1px 6px rgba(15,31,75,.14);
-    }
-    .card-status--dev {
-      background: rgba(15,31,75,.88);
-      color: #fff;
-      border: 1px solid rgba(255,255,255,.16);
-    }
-    .card-status--design {
-      background: rgba(200,153,58,.94);
-      color: #fff;
-      border: 1px solid rgba(255,255,255,.22);
-    }
-
-    .card-body {
-      padding: 24px 26px 22px;
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-    }
-    .card-category { margin-bottom: 12px; }
-    .card-title { font-size: 20px; margin-bottom: 10px; }
-    .card-desc {
-      font-size: 13px;
-      line-height: 1.65;
-      color: var(--gray-700);
-      flex: 0 1 auto;
-      margin-bottom: 14px;
-    }
-    .card-outcome {
-      display: flex;
-      gap: 8px;
-      font-size: 12.5px;
-      line-height: 1.55;
-      font-weight: 600;
-      color: var(--navy);
-      background: var(--gold-dim);
-      border-left: 2px solid var(--gold);
-      border-radius: 0 6px 6px 0;
-      padding: 10px 12px;
-      margin-bottom: 16px;
-    }
-    .card-outcome-mark { color: var(--gold); font-weight: 800; flex: 0 0 auto; }
-
-    .card-meta {
-      list-style: none;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin: 0 0 20px;
-      flex: 1;
-      align-content: flex-start;
-    }
-    .card-meta li {
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: .04em;
-      color: var(--gray-500);
-      background: var(--off-white);
-      border: 1px solid var(--gray-100);
-      border-radius: 999px;
-      padding: 4px 9px;
-      white-space: nowrap;
-    }
-
-    /* overflow fix: CTA never wraps or collides */
-    .card-footer {
-      padding-top: 16px;
-      gap: 12px;
-      min-width: 0;
-    }
-    .card-cta { white-space: nowrap; flex: 0 0 auto; }
-    .card-label { display: none; }
-
-    /* ── Hero rebalance ───────────────────────────────── */
-    section { max-width: 1200px; }
-    .hero-text { max-width: 760px; }
-
-    @media (prefers-reduced-motion: reduce) {
-      .card:hover .card-thumb img { transform: none; }
-    }
-
-
-    /* ── Hero: role line, sub, stat panel ─────────────── */
-    .hero { align-items: flex-start; gap: 48px; }
-    .hero-text { flex: 1 1 auto; min-width: 0; }
-    h1 { margin-bottom: 10px; }
-    .hero-role {
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      color: var(--gray-500);
-      margin-bottom: 16px;
-    }
-    .hero-sub {
-      font-size: 14.5px;
-      line-height: 1.65;
-      color: var(--gray-700);
-      max-width: 56ch;
-      margin-bottom: 26px;
-    }
-
-    .hero-stats {
-      flex: 0 0 244px;
-      align-self: stretch;
-      border-left: 1px solid var(--gray-100);
-      padding-left: 28px;
-      opacity: 0;
-      animation: fadeUp .7s ease forwards .4s;
-    }
-    .hero-stats-head {
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: .22em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 18px;
-    }
-    .hero-stats ul { list-style: none; display: grid; gap: 16px; }
-    .hero-stats li { display: grid; gap: 1px; }
-    .stat-val {
-      font-size: 24px;
-      font-weight: 900;
-      color: var(--navy);
-      letter-spacing: -.02em;
-      line-height: 1.1;
-    }
-    .stat-label {
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--gray-700);
-      line-height: 1.35;
-    }
-    .stat-note {
-      font-size: 10.5px;
-      font-weight: 500;
-      color: var(--gray-500);
-      line-height: 1.45;
-    }
-
-    @media (max-width: 1080px) {
-      .hero { flex-wrap: wrap; }
-      .hero-stats {
-        flex: 1 1 100%;
-        border-left: 0;
-        border-top: 1px solid var(--gray-100);
-        padding-left: 0;
-        padding-top: 24px;
-        margin-top: 8px;
-      }
-      .hero-stats ul { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; }
-    }
-
   </style>
 </head>
 <body>
@@ -802,35 +611,13 @@
         <div class="eyebrow-rule"></div>
         <span class="eyebrow-text">Product Portfolio</span>
       </div>
-      <h1>Jerel Smith<br><span class="accent">Senior Product Manager</span></h1>
-      <p class="hero-role">B2B &amp; Used &middot; B&amp;H Photo Video</p>
-      <p class="hero-sub">Ten years turning e-commerce friction into measurable revenue &mdash; across search, B2B portals, and marketplaces doing hundreds of millions in annual transactions. Below are the working prototypes behind that.</p>
+      <h1>Jerel Smith<br><span class="accent">Senior Product Manager</span><br>Prototypes</h1>
+      <p class="hero-sub">Building enterprise-grade PM demo experiences</p>
       <div class="tags">
         <a class="tag tag-navy" href="https://jerelproductmanager.github.io/b2b/">Enterprise Platforms · B2B</a>
         <a class="tag tag-navy" href="https://jerelproductmanager.github.io/used/">Used Web Liaison</a>
         <a class="tag tag-gold" href="https://jerelproductmanager.github.io/search-and-navigation/search-nav.html">E-Commerce Search &amp; Navigation</a>
       </div>
-    </div>
-
-    <div class="hero-stats">
-      <div class="hero-stats-head">Shipped Impact</div>
-      <ul><li>
-          <span class="stat-val">+5.2%</span>
-          <span class="stat-label">Accessory attachment rate</span>
-          <span class="stat-note">My Camera finder &middot; +$38 AOV</span>
-        </li><li>
-          <span class="stat-val">+3.7%</span>
-          <span class="stat-label">Conversion lift</span>
-          <span class="stat-note">Sort logic &amp; zero-result reduction</span>
-        </li><li>
-          <span class="stat-val">+4.3%</span>
-          <span class="stat-label">Kit sales</span>
-          <span class="stat-note">Interactive Kit PDP redesign</span>
-        </li><li>
-          <span class="stat-val">+18%</span>
-          <span class="stat-label">A/B test velocity YoY</span>
-          <span class="stat-note">30-day product health framework</span>
-        </li></ul>
     </div>
   </div>
 
@@ -865,104 +652,62 @@
     <div class="cards">
 
       <a class="card" href="https://jerelproductmanager.github.io/used/">
-        <div class="card-thumb">
-          <img src="thumbs/used.webp" alt="B&H Used prototype screen" loading="lazy" width="800" height="500">
-          <span class="card-status card-status--dev">In Development</span>
-        </div>
-        <div class="card-body">
-          <div class="card-category"><span class="pulse"></span>Used · Consumer</div>
-          <h3 class="card-title">B&amp;H Used</h3>
-          <p class="card-desc">A $100M business with an underserved web footprint &mdash; outdated stack, disjointed experience, no photos of the actual item, and separate condition scales for buying and selling.</p>
-          
-          <ul class="card-meta"><li>Foundational research</li><li>Unified condition scale</li><li>Seller flow</li><li>Funnel dashboards</li></ul>
-          <div class="card-footer">
-            <span class="card-cta">View Demo <span class="arrow">&rarr;</span></span>
-          </div>
+        <div class="card-category"><span class="pulse"></span>Used · Consumer</div>
+        <h3 class="card-title">B&amp;H Used</h3>
+        <p class="card-desc"></p>
+        <div class="card-footer">
+          <span class="card-cta">View Demo <span class="arrow">→</span></span>
+          <span class="card-label">Used Web Liaison</span>
         </div>
       </a>
 
       <a class="card" href="https://jerelproductmanager.github.io/the-studio-bnh/">
-        <div class="card-thumb">
-          <img src="thumbs/studio.webp" alt="The Studio B&H prototype screen" loading="lazy" width="800" height="500">
-          <span class="card-status card-status--design">In Design</span>
-        </div>
-        <div class="card-body">
-          <div class="card-category"><span class="pulse"></span>Studio · Creative</div>
-          <h3 class="card-title">The Studio B&amp;H</h3>
-          <p class="card-desc">High-end consultative services delivered by staff with 15+ years of experience &mdash; and the target customers had no idea they existed.</p>
-          <p class="card-outcome"><span class="card-outcome-mark">&rarr;</span>A full stand-alone site on par with direct competitors AbelCine, CVP, and Key Code Media.</p>
-          <ul class="card-meta"><li>3 directions</li><li>Category framework</li><li>Stakeholder deck</li></ul>
-          <div class="card-footer">
-            <span class="card-cta">View Demo <span class="arrow">&rarr;</span></span>
-          </div>
+        <div class="card-category"><span class="pulse"></span>Studio · Creative</div>
+        <h3 class="card-title">The Studio B&amp;H</h3>
+        <p class="card-desc"></p>
+        <div class="card-footer">
+          <span class="card-cta">View Demo <span class="arrow">→</span></span>
+          <span class="card-label">Creative Workspace</span>
         </div>
       </a>
 
       <a class="card" href="https://jerelproductmanager.github.io/search-and-navigation/search-nav.html">
-        <div class="card-thumb">
-          <img src="thumbs/search-nav.webp" alt="Search & Navigation prototype screen" loading="lazy" width="800" height="500">
-          <span class="card-status card-status--dev">In Development</span>
-        </div>
-        <div class="card-body">
-          <div class="card-category"><span class="pulse"></span>Search · Navigation</div>
-          <h3 class="card-title">Search &amp; Navigation</h3>
-          <p class="card-desc">Category depth was unreachable from the nav. Customers browsed through several pages of links to find what they came for.</p>
-          
-          <ul class="card-meta"><li>Mega-menu prototype</li><li>Merch tool</li><li>Exec deck</li><li>A/B impact dashboard</li></ul>
-          <div class="card-footer">
-            <span class="card-cta">View Demo <span class="arrow">&rarr;</span></span>
-          </div>
+        <div class="card-category"><span class="pulse"></span>Search · Navigation</div>
+        <h3 class="card-title">Search &amp; Navigation</h3>
+        <p class="card-desc"></p>
+        <div class="card-footer">
+          <span class="card-cta">View Demo <span class="arrow">→</span></span>
+          <span class="card-label">E-Commerce Search &amp; Nav</span>
         </div>
       </a>
 
       <a class="card" href="https://jerelproductmanager.github.io/b2b/">
-        <div class="card-thumb">
-          <img src="thumbs/b2b-hub.webp" alt="B2B Hub prototype screen" loading="lazy" width="800" height="500">
-          <span class="card-status card-status--dev">In Development</span>
-        </div>
-        <div class="card-body">
-          <div class="card-category"><span class="pulse"></span>B2B · Enterprise</div>
-          <h3 class="card-title">B2B Hub</h3>
-          <p class="card-desc">Forcing prospects to identify their industry before sign-up created redundant work and funnel leakage. Meanwhile, hub update requests sat in the backlog for months.</p>
-          <p class="card-outcome"><span class="card-outcome-mark">&rarr;</span>A sign-up-centered experience paired with a CMS that B2B stakeholders control.</p>
-          <ul class="card-meta"><li>PMO-5000 brief</li><li>GA4 spec</li><li>Portal routing</li><li>Role-based views</li></ul>
-          <div class="card-footer">
-            <span class="card-cta">View Demo <span class="arrow">&rarr;</span></span>
-          </div>
+        <div class="card-category"><span class="pulse"></span>B2B · Enterprise</div>
+        <h3 class="card-title">B2B - Hub</h3>
+        <p class="card-desc"></p>
+        <div class="card-footer">
+          <span class="card-cta">View Demo <span class="arrow">→</span></span>
+          <span class="card-label">Enterprise Platform</span>
         </div>
       </a>
 
-      <a class="card" href="https://jerelproductmanager.github.io/b2b-k12/">
-        <div class="card-thumb">
-          <img src="thumbs/k12-safety.webp" alt="K-12 Safety prototype screen" loading="lazy" width="800" height="500">
-          <span class="card-status card-status--dev">In Development</span>
-        </div>
-        <div class="card-body">
-          <div class="card-category"><span class="pulse"></span>B2B · K-12 Safety</div>
-          <h3 class="card-title">K-12 Safety</h3>
-          <p class="card-desc">No central place for districts to learn the five pillars &mdash; physical security, emergency comms, video surveillance, cybersecurity, student wellness &mdash; or the compliance rules behind them.</p>
-          <p class="card-outcome"><span class="card-outcome-mark">&rarr;</span>A one-stop shop for school safety officers: solutions, products, and state compliance.</p>
-          <ul class="card-meta"><li>Low-fi &rarr; hi-fi progression</li><li>Interactive campus map</li><li>5-pillar framework</li></ul>
-          <div class="card-footer">
-            <span class="card-cta">View Demo <span class="arrow">&rarr;</span></span>
-          </div>
+      <a class="card" href="https://jerelproductmanager.github.io/b2b-plus/">
+        <div class="card-category"><span class="pulse"></span>B2B · K-12 Safety</div>
+        <h3 class="card-title">B2B - K-12 Safety</h3>
+        <p class="card-desc"></p>
+        <div class="card-footer">
+          <span class="card-cta">View Demo <span class="arrow">→</span></span>
+          <span class="card-label">K-12 Safety Concepts</span>
         </div>
       </a>
 
       <a class="card" href="https://jerelproductmanager.github.io/b2b-edu/">
-        <div class="card-thumb">
-          <img src="thumbs/b2b-edu.webp" alt="B2B EDU prototype screen" loading="lazy" width="800" height="500">
-          <span class="card-status card-status--dev">In Development</span>
-        </div>
-        <div class="card-body">
-          <div class="card-category"><span class="pulse"></span>B2B · Education</div>
-          <h3 class="card-title">B2B EDU</h3>
-          <p class="card-desc">An outdated, uninformative landing page for higher-ed administrators sourcing supplies and equipment for their institutions.</p>
-          <p class="card-outcome"><span class="card-outcome-mark">&rarr;</span>A modern, responsive experience that is visually appealing and actually informative.</p>
-          <ul class="card-meta"><li>Clickable prototype</li><li>UNiDAYS verification</li><li>Static mockup</li></ul>
-          <div class="card-footer">
-            <span class="card-cta">View Demo <span class="arrow">&rarr;</span></span>
-          </div>
+        <div class="card-category"><span class="pulse"></span>B2B · Education</div>
+        <h3 class="card-title">B2B - EDU</h3>
+        <p class="card-desc"></p>
+        <div class="card-footer">
+          <span class="card-cta">View Demo <span class="arrow">→</span></span>
+          <span class="card-label">Education Concepts</span>
         </div>
       </a>
 
