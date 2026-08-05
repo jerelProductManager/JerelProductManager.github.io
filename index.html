@@ -859,6 +859,20 @@
     #rmv-kanban::-webkit-scrollbar-thumb { background: var(--gray-300); border-radius: 999px; }
     #rmv-kanban::-webkit-scrollbar-track { background: var(--gray-100); border-radius: 999px; }
 
+
+    /* roadmap: year markers + per-row portfolio label */
+    .g-axis .m { position: relative; }
+    .g-yr {
+      position: absolute; left: 50%; transform: translateX(-50%);
+      bottom: -13px; font-size: 8.5px; font-style: normal; font-weight: 700;
+      letter-spacing: .10em; color: var(--gray-300); white-space: nowrap;
+    }
+    .g-name { display: block; }
+    .g-port {
+      display: block; font-style: normal; font-size: 9.5px; font-weight: 600;
+      letter-spacing: .08em; text-transform: uppercase; color: var(--gray-300); margin-top: 1px;
+    }
+
   </style>
 </head>
 <body>
@@ -1046,7 +1060,7 @@
       </div>
 
       <div class="rm-view active" id="rmv-timeline">
-        <div class="rm-legend"><span class="rm-legend-label">Portfolio</span><span class="rm-legend-item"><i style="background:#C8993A"></i>B2B</span><span class="rm-legend-item"><i style="background:#C45000"></i>Used Operations</span><span class="rm-legend-item"><i style="background:#B80000"></i>Web Experience</span><span class="rm-legend-item"><i style="background:#8B008B"></i>Merchandising</span></div><div class="gantt" id="gantt"></div></div>
+        <div class="rm-legend"><span class="rm-legend-label">Portfolio</span><span class="rm-legend-item"><i style="background:#2a78d6"></i>B2B</span><span class="rm-legend-item"><i style="background:#eb6834"></i>Used Operations</span><span class="rm-legend-item"><i style="background:#1baf7a"></i>Web Experience</span><span class="rm-legend-item"><i style="background:#eda100"></i>Merchandising</span><span class="rm-legend-item"><i style="background:#e87ba4"></i>The Studio</span></div><div class="gantt" id="gantt"></div></div>
       <div class="rm-view rm-scroller" id="rmv-kanban"><div class="kanban" id="kanban"></div></div>
       <div class="rm-view" id="rmv-portfolio"><div class="lanes" id="lanes"></div></div>
     </div>
@@ -1087,6 +1101,11 @@
       {t:"Sunset Deal Zone",      s:"7. Live",           p:"Web Experience",  comp:"Navigation",           start:"Jun", end:"Aug"},
       {t:"View All Category Landing Page", s:"7. Live",  p:"Web Experience",  comp:"Category Landing Page",start:null,  end:"Jul"},
       {t:"Roll Up SKUs",          s:"99. Parking Lot",   p:"Web Experience",  comp:"PLP/Search",           start:null,  end:null},
+      {t:"The Studio — Landing Page Reskin", s:"2. Design", p:"The Studio", comp:"The Studio", start:"May", end:"Oct"},
+      {t:"The Studio — Category Hybrid Page", s:"2. Design", p:"The Studio", comp:"The Studio", start:"Aug", end:"Oct"},
+      {t:"The Studio — B&H Awareness, High-Ticket", s:"2. Design", p:"The Studio", comp:"The Studio", start:"Sep", end:"Oct"},
+      {t:"The Studio — Stand-Alone Website", s:"2. Design", p:"The Studio", comp:"The Studio", start:"Sep", end:"Mar'27"},
+      {t:"The Studio — Enhanced Landing Page", s:"2. Design", p:"The Studio", comp:"The Studio", start:"Oct", end:"Jan"},
       {t:"B2B The Studio Categories", s:"99. Parking Lot", p:"B2B",           comp:"B2B Hub",              start:null,  end:null},
     ];
     const RM_STAGES = [
@@ -1100,12 +1119,13 @@
       {key:"99. Parking Lot",   short:"Parking Lot",    cls:"badge-parking",   color:"#B4B4B4"},
     ];
     const RM_PORT = {
-      "B2B":             {cls:"chip-b2b",   color:"#C8993A"},
-      "Used Operations": {cls:"chip-used",  color:"#C45000"},
-      "Web Experience":  {cls:"chip-web",   color:"#B80000"},
-      "Merchandising":   {cls:"chip-merch", color:"#8B008B"},
+      "B2B":             {cls:"chip-b2b",    color:"#2a78d6"},
+      "Used Operations": {cls:"chip-used",   color:"#eb6834"},
+      "Web Experience":  {cls:"chip-web",    color:"#1baf7a"},
+      "Merchandising":   {cls:"chip-merch",  color:"#eda100"},
+      "The Studio":      {cls:"chip-studio", color:"#e87ba4"},
     };
-    const RM_PORT_ORDER = ["B2B","Used Operations","Web Experience","Merchandising"];
+    const RM_PORT_ORDER = ["B2B","Used Operations","Web Experience","Merchandising","The Studio"];
     const rmStage = k => RM_STAGES.find(x => x.key === k);
     const rmBadge = s => { const m = rmStage(s); return '<span class="badge ' + m.cls + '">' + s + '</span>'; };
     const rmChip  = p => '<span class="chip ' + RM_PORT[p].cls + '">' + p + '</span>';
@@ -1136,16 +1156,19 @@
     (function() {
       const wrap = document.getElementById('gantt');
       if (!wrap) return;
-      const AXIS = ["Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec","Jan"]; // Mar'26 → Jan'27
+      const AXIS = ["Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec","Jan","Feb","Mar'27"];
+      const YEAR_AT = {0:'2026', 10:'2027'};  // 'Mar' appears at both ends — mark the year
       const NOW = "Jul";
       const idx = m => AXIS.indexOf(m);
       const effStart = d => d.start ? idx(d.start) : idx(d.end);
       const effEnd   = d => d.end ? idx(d.end) : idx(d.start);
+      const pOrder = p => RM_PORT_ORDER.indexOf(p);
       const scheduled = RM_DATA.filter(d => d.start || d.end)
-        .sort((a, b) => effStart(a) - effStart(b) || effEnd(a) - effEnd(b));
+        .sort((a, b) => pOrder(a.p) - pOrder(b.p) || effStart(a) - effStart(b) || effEnd(a) - effEnd(b));
       const unscheduled = RM_DATA.filter(d => !d.start && !d.end);
       let html = '<div class="gantt-grid"><div></div><div class="g-axis">' +
-        AXIS.map(m => '<div class="m ' + (m === NOW ? 'now' : '') + '">' + m + '</div>').join('') + '</div>';
+        AXIS.map((m, mi) => '<div class="m ' + (m === NOW ? 'now' : '') + '">' + m +
+          (YEAR_AT[mi] ? '<i class="g-yr">' + YEAR_AT[mi] + '</i>' : '') + '</div>').join('') + '</div>';
       scheduled.forEach(d => {
         const meta = RM_PORT[d.p];
         let s = d.start ? idx(d.start) : idx(d.end);
@@ -1156,7 +1179,8 @@
         const widthPct = ((e - s + 1) / AXIS.length) * 100;
         const cells = AXIS.map(m => '<span class="' + (m === NOW ? 'now' : '') + '"></span>').join('');
         const label = (d.start && d.end && d.start !== d.end) ? (d.start + ' – ' + d.end) : (d.end || d.start);
-        html += '<div class="g-row"><div class="g-label"><span class="dot" style="background:' + meta.color + '"></span>' + d.t + '</div>' +
+        html += '<div class="g-row"><div class="g-label"><span class="dot" style="background:' + meta.color + '"></span>' +
+          '<span class="g-name">' + d.t + '<i class="g-port">' + d.p + '</i></span></div>' +
           '<div class="g-track"><div class="cells">' + cells + '</div>' +
           '<div class="g-bar" style="left:' + leftPct + '%;width:' + widthPct + '%;background:' + meta.color + '">' + label + '</div></div></div>';
       });
