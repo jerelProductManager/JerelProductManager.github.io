@@ -784,7 +784,7 @@
     .sec-measure { padding-top: 8px; padding-bottom: 72px; }
     .measure-lede {
       font-size: 14.5px; line-height: 1.7; color: var(--gray-700);
-      max-width: 72ch; margin: -18px 0 30px;
+      margin: -18px 0 30px;
     }
     .measure-lede strong { color: var(--navy); font-weight: 700; }
     .measure-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
@@ -846,9 +846,23 @@
     .scard-title { font-size: 15.5px; font-weight: 800; color: var(--navy); line-height: 1.25; margin-bottom: 8px; }
     .scard-where {
       font-size: 11.5px; line-height: 1.6; color: var(--gray-500);
-      display: flex; gap: 7px; flex: 1; margin-bottom: 12px;
+      display: flex; gap: 7px; flex: 1; margin-bottom: 14px;
     }
     .scard-pin { color: var(--gold); font-size: 8px; line-height: 1.9; flex: 0 0 auto; }
+    a.scard { text-decoration: none; color: inherit; transition: border-color .22s, box-shadow .22s, transform .22s; }
+    a.scard:hover { border-color: var(--gold-border); box-shadow: var(--shadow-lg); transform: translateY(-3px); }
+    .scard-thumb img { transition: transform .5s cubic-bezier(.2,.7,.3,1); }
+    a.scard:hover .scard-thumb img { transform: scale(1.04); }
+    .scard-foot {
+      display: flex; align-items: center; justify-content: space-between; gap: 10px;
+      padding-top: 12px; border-top: 1px solid var(--gray-100); margin-top: auto;
+    }
+    .scard-cta {
+      font-size: 10px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+      color: var(--navy); display: inline-flex; align-items: center; gap: 5px;
+      white-space: nowrap; transition: gap .2s, color .2s;
+    }
+    a.scard:hover .scard-cta { gap: 9px; color: var(--gold); }
     .scard-surface {
       align-self: flex-start; font-size: 9.5px; font-weight: 700; letter-spacing: .10em;
       text-transform: uppercase; color: var(--gray-500);
@@ -970,81 +984,100 @@
       <h2>Shipped</h2>
       <div class="section-rule"></div>
     </div>
-    <p class="measure-lede">Live on <strong>bhphotovideo.com</strong> today. Each one is an element on a page
-    rather than a page of its own &mdash; the locator says where to look.</p>
+    <p class="measure-lede">Live on <strong>bhphotovideo.com</strong> today. Two are pages in their own right and one
+    is site-wide; the rest are refinements that surface across many listing pages &mdash; so each tile says where to
+    look and opens a page where you can see it working.</p>
     <div class="shipped-grid">
-      <figure class="scard">
-        <div class="scard-thumb">
-          <img src="thumbs/ship-dealzone.webp" alt="Specials & Sunset Deal Zone on bhphotovideo.com" loading="lazy" width="800" height="500">
-          <span class="scard-live">Live</span>
-        </div>
-        <figcaption class="scard-body">
-          <h3 class="scard-title">Specials &amp; Sunset Deal Zone</h3>
-          <p class="scard-where"><span class="scard-pin">&#9679;</span>Specials &rarr; Deal Zone</p>
-          <span class="scard-surface">Navigation</span>
-        </figcaption>
-      </figure>
-      <figure class="scard">
-        <div class="scard-thumb">
-          <img src="thumbs/ship-experts.webp" alt="Experts in the Header on bhphotovideo.com" loading="lazy" width="800" height="500">
-          <span class="scard-live">Live</span>
-        </div>
-        <figcaption class="scard-body">
-          <h3 class="scard-title">Experts in the Header</h3>
-          <p class="scard-where"><span class="scard-pin">&#9679;</span>Site header &rarr; Ask Our Experts</p>
-          <span class="scard-surface">Global header</span>
-        </figcaption>
-      </figure>
-      <figure class="scard">
-        <div class="scard-thumb">
-          <img src="thumbs/ship-usedhub.webp" alt="Used Hub on bhphotovideo.com" loading="lazy" width="800" height="500">
-          <span class="scard-live">Live</span>
-        </div>
-        <figcaption class="scard-body">
-          <h3 class="scard-title">Used Hub</h3>
-          <p class="scard-where"><span class="scard-pin">&#9679;</span>Used &rarr; B&amp;H Used Department</p>
-          <span class="scard-surface">Used</span>
-        </figcaption>
-      </figure>
-      <figure class="scard">
+      <a class="scard" href="https://www.bhphotovideo.com/c/buy/Digital-Cameras/ci/9811/N/4288586282" target="_blank" rel="noopener">
         <div class="scard-thumb">
           <img src="thumbs/ship-swatches.webp" alt="Color Swatches on bhphotovideo.com" loading="lazy" width="800" height="500">
           <span class="scard-live">Live</span>
         </div>
-        <figcaption class="scard-body">
+        <div class="scard-body">
           <h3 class="scard-title">Color Swatches</h3>
-          <p class="scard-where"><span class="scard-pin">&#9679;</span>Any category PLP &rarr; left rail &rarr; Color &rarr; See all</p>
-          <span class="scard-surface">PLP / Search</span>
-        </figcaption>
-      </figure>
-      <figure class="scard">
+          <p class="scard-where"><span class="scard-pin">&#9679;</span>Left rail &rarr; Color &rarr; See all</p>
+          <div class="scard-foot">
+            <span class="scard-surface">Listing pages</span>
+            <span class="scard-cta">Digital Cameras <span class="arrow">&rarr;</span></span>
+          </div>
+        </div>
+      </a>
+      <a class="scard" href="https://www.bhphotovideo.com/c/buy/Complete-Tripods-with-Heads/ci/2635/N/4075788742" target="_blank" rel="noopener">
         <div class="scard-thumb">
           <img src="thumbs/ship-sliders.webp" alt="Slider Refinements on bhphotovideo.com" loading="lazy" width="800" height="500">
           <span class="scard-live">Live</span>
         </div>
-        <figcaption class="scard-body">
+        <div class="scard-body">
           <h3 class="scard-title">Slider Refinements</h3>
-          <p class="scard-where"><span class="scard-pin">&#9679;</span>Tripods PLP &rarr; left rail &rarr; Maximum Height, Support Weight</p>
-          <span class="scard-surface">PLP / Search</span>
-        </figcaption>
-      </figure>
-      <figure class="scard">
+          <p class="scard-where"><span class="scard-pin">&#9679;</span>Left rail &rarr; Maximum Height, Support Weight</p>
+          <div class="scard-foot">
+            <span class="scard-surface">Listing pages</span>
+            <span class="scard-cta">Tripods with Heads <span class="arrow">&rarr;</span></span>
+          </div>
+        </div>
+      </a>
+      <a class="scard" href="https://www.bhphotovideo.com/c/buy/Digital-Cameras/ci/9811/N/4288586282" target="_blank" rel="noopener">
         <div class="scard-thumb">
           <img src="thumbs/ship-selectall.webp" alt="Select All / Deselect All on bhphotovideo.com" loading="lazy" width="800" height="500">
           <span class="scard-live">Live</span>
         </div>
-        <figcaption class="scard-body">
+        <div class="scard-body">
           <h3 class="scard-title">Select All / Deselect All</h3>
-          <p class="scard-where"><span class="scard-pin">&#9679;</span>Any multi-value filter &rarr; See All Options &rarr; Select All</p>
-          <span class="scard-surface">PLP / Search</span>
-        </figcaption>
-      </figure>
+          <p class="scard-where"><span class="scard-pin">&#9679;</span>Any multi-value filter &rarr; See All Options</p>
+          <div class="scard-foot">
+            <span class="scard-surface">Listing pages</span>
+            <span class="scard-cta">Digital Cameras <span class="arrow">&rarr;</span></span>
+          </div>
+        </div>
+      </a>
+      <a class="scard" href="https://www.bhphotovideo.com/deals-promotions-coupons" target="_blank" rel="noopener">
+        <div class="scard-thumb">
+          <img src="thumbs/ship-dealzone.webp" alt="Specials & Sunset Deal Zone on bhphotovideo.com" loading="lazy" width="800" height="500">
+          <span class="scard-live">Live</span>
+        </div>
+        <div class="scard-body">
+          <h3 class="scard-title">Specials &amp; Sunset Deal Zone</h3>
+          <p class="scard-where"><span class="scard-pin">&#9679;</span>Deal Zone &mdash; new savings every day</p>
+          <div class="scard-foot">
+            <span class="scard-surface">Own page</span>
+            <span class="scard-cta">Deals &amp; Promotions <span class="arrow">&rarr;</span></span>
+          </div>
+        </div>
+      </a>
+      <a class="scard" href="https://www.bhphotovideo.com/c/browse/Used-Equipment/ci/2870/N/4294247188" target="_blank" rel="noopener">
+        <div class="scard-thumb">
+          <img src="thumbs/ship-usedhub.webp" alt="Used Hub on bhphotovideo.com" loading="lazy" width="800" height="500">
+          <span class="scard-live">Live</span>
+        </div>
+        <div class="scard-body">
+          <h3 class="scard-title">Used Hub</h3>
+          <p class="scard-where"><span class="scard-pin">&#9679;</span>Buy Used &middot; Sell Used &middot; FAQs &middot; Museum</p>
+          <div class="scard-foot">
+            <span class="scard-surface">Own page</span>
+            <span class="scard-cta">Used Equipment <span class="arrow">&rarr;</span></span>
+          </div>
+        </div>
+      </a>
+      <a class="scard" href="https://www.bhphotovideo.com/" target="_blank" rel="noopener">
+        <div class="scard-thumb">
+          <img src="thumbs/ship-experts.webp" alt="Experts in the Header on bhphotovideo.com" loading="lazy" width="800" height="500">
+          <span class="scard-live">Live</span>
+        </div>
+        <div class="scard-body">
+          <h3 class="scard-title">Experts in the Header</h3>
+          <p class="scard-where"><span class="scard-pin">&#9679;</span>Ask Our Experts &rarr; chat, video, callback</p>
+          <div class="scard-foot">
+            <span class="scard-surface">Site-wide</span>
+            <span class="scard-cta">Every page <span class="arrow">&rarr;</span></span>
+          </div>
+        </div>
+      </a>
     </div>
   </section>
 
   <section class="sec-demos">
     <div class="section-header">
-      <h2>In Flight</h2>
+      <h2>Prototypes</h2>
       <div class="section-rule"></div>
     </div>
 
